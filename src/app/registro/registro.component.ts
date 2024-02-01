@@ -1,3 +1,4 @@
+// registro.component.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
+  user = {
+    name: '',
+    address: '',
+    password: '',
+    repeatPassword: '',
+    staySignedIn: false
+  };
 
 }

@@ -1,0 +1,15 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+  
+  .nav-link {
+    color: #000000;
+  }
+  
+  .nav-link:hover {
+    color: #fbfcfd;
+  }
+  
+  .custom-navbar {
+    background-color: red; /* Puedes ajustar el color según tus preferencias */
+}
