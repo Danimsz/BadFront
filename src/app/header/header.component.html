@@ -1,22 +1,36 @@
 <!-- app.component.html -->
 <nav class="navbar navbar-expand-lg custom-navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Mi Sitio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Registro</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
-          </li>
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="assets/images/logo.png" alt="Logo" height="70" [routerLink]="''">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/inicio']">BAD INFLUENCE</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/productos']">CATÁLOGO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/aboutus']">SOBRE NOSOTROS</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto"> <!-- Agregamos una nueva lista para alinear a la derecha -->
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['/registro']">
+            <i class="fas fa-user fa-lg"></i> <!-- Ícono de carrito -->
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-shopping-cart fa-lg"></i> <!-- Ícono de inicio de sesión -->
+          </a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

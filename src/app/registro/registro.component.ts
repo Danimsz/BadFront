@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
+  isLoginForm: boolean = true;
+
+  toggleForm() {
+    this.isLoginForm = !this.isLoginForm;
+  }
+
   user = {
     name: '',
     address: '',
@@ -16,3 +22,5 @@ export class RegistroComponent {
   };
 
 }
+
+

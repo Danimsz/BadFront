@@ -1,15 +1,43 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import '~@fortawesome/fontawesome-free/css/all.css';
 
 
   
   .nav-link {
-    color: #000000;
+    color: #ffffff;
+    font-weight: bold;
   }
   
   .nav-link:hover {
-    color: #fbfcfd;
+    color: #9a0606;
+    font-style: bold;
+    font-weight: bold;
   }
   
   .custom-navbar {
-    background-color: red; /* Puedes ajustar el color según tus preferencias */
+    background-color: rgb(37, 37, 37); /* Puedes ajustar el color según tus preferencias */
 }
+
+.navbar-nav {
+  margin-right: 5%; /* Ajusta el valor según tus necesidades */
+}
+
+.navbar-brand:hover{
+  animation: pulse 1s infinite;
+}
+
+/* Agrega estos estilos a tu archivo de estilos CSS */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
