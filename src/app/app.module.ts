@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { RegistroComponent } from './registro/registro.component';
 import { ProductosComponent } from './productos/productos.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AboutUSComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { ProductosComponent } from './productos/productos.component';
     HeaderComponent,
     InicioComponent,
     RegistroComponent,
-    ProductosComponent
+    ProductosComponent,
+    AboutUSComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

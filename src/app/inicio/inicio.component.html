@@ -1,1 +1,14 @@
-<p>inicio works!</p>
+<!-- pagina-principal.component.html -->
+<div class="pagina-principal">
+    <div class="empresa-info">
+      <img class="fondo" src="assets/images/fondo.jpeg" alt="Logo de la empresa">
+      <p>Descripción de la empresa</p>
+    </div>
+  
+    <div class="carrusel">
+      <div *ngFor="let foto of fotosPequenas" class="foto-pequena">
+        <img src="{{ foto }}" alt="Foto de la empresa" class="imagen-redondeada">
+      </div>
+    </div>
+  </div>
+  
