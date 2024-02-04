@@ -21,6 +21,7 @@ export class RegistroComponent {
 
   user = {
     name: '',
+    email: '',
     address: '',
     password: '',
     repeatPassword: '',
