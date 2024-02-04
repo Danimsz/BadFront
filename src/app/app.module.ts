@@ -10,6 +10,8 @@ import { ProductosComponent } from './productos/productos.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutUSComponent } from './about-us/about-us.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { AboutUSComponent } from './about-us/about-us.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
