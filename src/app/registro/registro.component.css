@@ -29,4 +29,16 @@ form {
   button:hover {
     background-color: #232323;
   }
+
+  .welcome-message {
+    color: green;
+    text-align: center;
+    margin-top: 10px; /* Ajusta según sea necesario */
+  }
+
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px; /* Ajusta según sea necesario */
+  }
   

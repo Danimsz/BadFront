@@ -1,6 +1,8 @@
 // registro.component.ts
+
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router'; // Importa el servicio Router
 
 @Component({
   selector: 'app-registro',
@@ -8,53 +10,81 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent {
-  isLoginForm = true; // Establece esto a false para mostrar el formulario de registro
-  registerDto: any = {}; // Inicializar como objeto vacío
-  loginDto: any = {}; // Inicializar como objeto vacío
-  apiUrl = 'https://localhost:7089/LoginRegister'; // Ajusta la URL base según tu configuración
-
-  constructor(private http: HttpClient) {}
+  isLoginForm = true;
+  registerDto: any = {};
+  loginDto: any = {};
+  apiUrl = 'https://localhost:7089/LoginRegister';
+  passwordMismatchError = false;
+  registrationSuccess = false;
+  welcomeMessage: string = '';
+  loginError: string = '';
+  registerError: string = '';
+  // Inyecta el servicio Router en el constructor
+  constructor(private http: HttpClient, private router: Router) {}
 
   toggleForm() {
     this.isLoginForm = !this.isLoginForm;
   }
 
   loginUser(loginDto: any) {
-    // Realiza la solicitud HTTP POST al endpoint de inicio de sesión en tu servidor
-    this.http.post(`${this.apiUrl}/Login`, loginDto)
+    this.http.post(`${this.apiUrl}/Login`, loginDto, { responseType: 'text' })
       .subscribe(
         (response) => {
           console.log('Inicio de sesión exitoso', response);
+  
+          // Almacena el nombre de usuario
+          const username = loginDto.userName;
+  
+          // Asigna el mensaje de bienvenida
+          this.welcomeMessage = `Te gustan los patos? y las zapatillas? Bienvenid@ ${username}! este es tu sitio y es peligroso.`;
+  
+          // Reinicia el mensaje de error
+          this.loginError = '';
+  
+          // Después de 3 segundos, redirige a la página de inicio
+          setTimeout(() => {
+            this.router.navigate(['/inicio']); // Ajusta la ruta según tu configuración
+          }, 5000);
         },
         (error) => {
           console.error('Error al iniciar sesión', error);
+  
+          // Asigna el mensaje de error
+          this.loginError = 'Echa el freno Madaleno ¿donde vas?, revisa tus credenciales.';
         }
       );
   }
+
+  // registro.component.ts
+// ...
 
   registerUser(registerDto: any) {
-    // Realiza la solicitud HTTP POST al endpoint de registro en tu servidor
-    this.http.post(`${this.apiUrl}/Register`, registerDto)
-      .subscribe(
-        (response) => {
-          console.log('Registro exitoso', response);
-        },
-        (error) => {
-          console.error('Error al registrar usuario', error);
-        }
-      );
-  }
+    if (registerDto.password === registerDto.repeatPassword) {
+      this.passwordMismatchError = false;
 
-  fetchData() {
-    // Realiza la solicitud HTTP GET para obtener datos del servidor
-    this.http.get(`${this.apiUrl}`)
-      .subscribe(
-        (data) => {
-          console.log('Datos recibidos', data);
-        },
-        (error) => {
-          console.error('Error al obtener datos', error);
-        }
-      );
+      this.http.post(`${this.apiUrl}/Register`, registerDto, { responseType: 'text' })
+        .subscribe(
+          (response) => {
+            console.log('Registro exitoso pichita', response);
+            this.registrationSuccess = true;
+
+            // Reinicia el mensaje de error
+            this.registerError = '';
+
+            // Después de un tiempo, cambiar al formulario de inicio de sesión
+            setTimeout(() => {
+              this.toggleForm();
+            }, 3000);
+          },
+          (error) => {
+            console.error('Error al registrar usuario', error);
+
+            // Asigna el mensaje de error
+            this.registerError = 'Error al registrarte crack, a ver si vas a estar usando un nombre que ya existe lila';
+          }
+        );
+    } else {
+      this.passwordMismatchError = true;
+    }
   }
 }
