@@ -50,7 +50,7 @@ export class RegistroComponent {
           console.error('Error al iniciar sesión', error);
   
           // Asigna el mensaje de error
-          this.loginError = 'Echa el freno Madaleno ¿donde vas?, revisa tus credenciales.';
+          this.loginError = 'Echa el freno Madaleno ¿dónde vas?, revisa tus credenciales amantao.';
         }
       );
   }
@@ -80,7 +80,7 @@ export class RegistroComponent {
             console.error('Error al registrar usuario', error);
 
             // Asigna el mensaje de error
-            this.registerError = 'Error al registrarte crack, a ver si vas a estar usando un nombre que ya existe lila';
+            this.registerError = 'Error al registrarte crack, a ver si vas a estar usando un nombre que ya existe, eres deficiente?';
           }
         );
     } else {

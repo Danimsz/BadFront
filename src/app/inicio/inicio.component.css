@@ -1,8 +1,9 @@
 /* pagina-principal.component.css */
+
 .pagina-principal {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
     margin-top: 3%;
   }
   
@@ -13,19 +14,21 @@
   
   .carrusel {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 1%;
   }
+
+.foto-pequena {
   
-  .foto-pequena {
-    margin-right: 10%;
-    border-radius: 7%;
-    border-style: groove;
-  }
+    width: 100%;
+    align-self: center;
+}
 
-  .imagen-redondeada {
-    border-radius: 10px;
-  }
-
+.imagen-redondeada {
+    border-radius: 30%;
+    width: 90%;
+    
+}
   .empresa-info img {
     width: 90%;
     border: 4px solid #333;
@@ -33,7 +36,12 @@
 }
 
 .lista-pag-principal {
-  text-align: left;
+  text-align: center;
+}
+
+.puntos{
+  display: flex;
+  justify-content: center;
 }
 
 

@@ -8,11 +8,12 @@
       <input type="text" id="nombre" name="nombre" [(ngModel)]="loginDto.userName"><br>
       <label for="password">Contraseña:</label><br>
       <input type="password" id="password"  name="password" [(ngModel)]="loginDto.password"><br>
+      <div *ngIf="welcomeMessage" class="welcome-message">{{ welcomeMessage }}</div>
+      <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
       <button type="submit">Iniciar Sesión</button>
     </form>
   </div>
-  <div *ngIf="welcomeMessage" class="welcome-message">{{ welcomeMessage }}</div>
-  <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
+
   
   <ng-template #registerForm>
     <form (submit)="registerUser(registerDto)">
@@ -28,11 +29,12 @@
       <input type="password" id="repeatPassword"  name="repeatPassword" [(ngModel)]="registerDto.repeatPassword"><br>
       <div *ngIf="passwordMismatchError" style="color: red;">Las contraseñas no coinciden. Por favor, inténtalo de nuevo.</div>
       <div *ngIf="registrationSuccess" style="color: green;">registro completo!</div>
+      <div *ngIf="registerError" class="error-message">{{ registerError }}</div>
       <!-- <label for="staySignedIn">Mantener iniciado</label>
       <input type="checkbox" id="staySignedIn"  name="staySignedIn" [(ngModel)]="registerDto.staySignedIn"> -->
       <button type="submit">Registrarse</button>
     </form>
   </ng-template>
 </div>
-<div *ngIf="registerError" class="error-message">{{ registerError }}</div>
+
 

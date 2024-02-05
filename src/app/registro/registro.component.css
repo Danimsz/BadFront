@@ -33,12 +33,12 @@ form {
   .welcome-message {
     color: green;
     text-align: center;
-    margin-top: 10px; /* Ajusta según sea necesario */
+    margin-top: 10px; 
   }
 
   .error-message {
     color: red;
     text-align: center;
-    margin-top: 10px; /* Ajusta según sea necesario */
+    margin-top: 10px; 
   }
   

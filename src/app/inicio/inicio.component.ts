@@ -12,6 +12,7 @@ export class InicioComponent {
     'assets/images/6.jpeg',
     'assets/images/1.jpeg',
     'assets/images/5.jpeg',
+    'assets/images/2.jpeg',
     // Podeis poner más imagenes aqui si quereis y aparecen más en la barra de imagenes pequeñas
   ];
 }
