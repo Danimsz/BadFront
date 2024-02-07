@@ -11,6 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutUSComponent } from './about-us/about-us.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { CestaComponent } from './cesta/cesta.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     InicioComponent,
     RegistroComponent,
     ProductosComponent,
-    AboutUSComponent
+    AboutUSComponent,
+    CestaComponent
   ],
   imports: [
     BrowserModule,
