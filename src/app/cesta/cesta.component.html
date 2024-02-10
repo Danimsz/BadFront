@@ -1,29 +1,39 @@
-<div class="container">
+<body>
+    <div class="container">
+        <h1>Tu Cesta de Compras</h1>
 
+        <!--Aqui deberia ir un ngfor con la lista de productos que se añaden a la cesta-->
 
-    <div class="productos-lista">
-        <h2>Mi carrito</h2>
-        
-        <div class="productos">
-            <div id="CantidadProducto"><span>Nombre Producto</span><br>
-                <button id="btnAñadir">Añadir</button>
-                <button id="btnEliminar">Eliminar</button>
-            </div>
-            <div id="imagenProducto">
-               
+        <div class="producto">
+            <img src="zapatilla1.jpg" alt="Zapatilla 1" class="imagenProducto">
+            <div class="infoProducto">
+                <h2>Zapatilla Deportiva 1</h2>
+                <p>Descripción del producto...</p>
+                <p class="precio">99.99€</p>
+                <button class="btnCantidad" onclick="decrementarCantidad(this)">-</button>
+                    <span class="cantidadNumero">1</span>
+                    <button class="btnCantidad" onclick="incrementarCantidad(this)">+</button>
+                <button class="btnEliminar">Eliminar</button>
             </div>
         </div>
-    </div>
-   
-   
-    <div class="Resumen">
-        <h4>Resumen</h4>
-       
-        <p>Subtotal: $<span id="Subtotal">0</span></p>
-        <p>Total del Pedio: $<span id="total">0</span></p>
-        <button id="btnValidar">Validar</button><br><br>
-        <button class="btnFinalizarCompra">Finaliza Compra</button>
-    </div>
 
+        <div class="producto">
+            <img src="zapatilla2.jpg" alt="Zapatilla 2" class="imagenProducto">
+            <div class="infoProducto">
+                <h2>Zapatilla Deportiva 2</h2>
+                <p>Descripción del producto...</p>
+                <p class="precio">79.99€</p>
+                <button class="btnCantidad" onclick="decrementarCantidad(this)">-</button>
+                    <span class="cantidadNumero">1</span>
+                    <button class="btnCantidad" onclick="incrementarCantidad(this)">+</button>
+                <button class="btnEliminar">Eliminar</button>
+            </div>
+        </div>
 
-</div>
+        <div class="total">
+            Total: 179.98€
+        </div>
+
+        <button class="btnFinalizarCompra">Finalizar Compra</button>
+    </div>
+</body>
