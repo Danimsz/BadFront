@@ -10,4 +10,16 @@ export interface Producto {
     imagenNombre: string;
     imagenUrl: string;
   }
+
+  export interface DetallesProducto {
+    ProductoID: number;
+    Cantidad: number;
+    Nombre: string;
+    Descripcion: string;
+    Precio: number;
+    ImagenID?: number;
+    ImagenNombre?: string;
+    ImagenUrl?: string;
+    Categoria: string;
+  }
   
