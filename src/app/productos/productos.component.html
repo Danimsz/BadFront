@@ -1,1 +1,6 @@
-<p>productos works!</p>
+<div *ngFor="let producto of catalogo">
+    <h3>{{ producto.nombre }}</h3>
+    <p>Precio: {{ producto.precio }}</p>
+    <img [src]="producto.imagen.imagenUrl" alt="{{ producto.nombre }}">
+  </div>
+  
