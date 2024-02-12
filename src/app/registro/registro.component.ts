@@ -13,7 +13,7 @@ export class RegistroComponent {
   isLoginForm = true;
   registerDto: any = {};
   loginDto: any = {};
-  apiUrl = 'https://localhost:7089/LoginRegister';
+  apiUrl = 'http://localhost:5174/LoginRegister';
   passwordMismatchError = false;
   registrationSuccess = false;
   welcomeMessage: string = '';
