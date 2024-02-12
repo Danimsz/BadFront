@@ -12,6 +12,7 @@ import { AboutUSComponent } from './about-us/about-us.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CestaComponent } from './cesta/cesta.component';
+import { DetallesproductoComponent } from './detallesproducto/detallesproducto.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CestaComponent } from './cesta/cesta.component';
     RegistroComponent,
     ProductosComponent,
     AboutUSComponent,
-    CestaComponent
+    CestaComponent,
+    DetallesproductoComponent
   ],
   imports: [
     BrowserModule,
