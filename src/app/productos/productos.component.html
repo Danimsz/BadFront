@@ -1,9 +1,7 @@
 <div class="catalogo">
-  <div *ngFor="let producto of catalogo" class="tarjeta">
-    <a [routerLink]="['/detalles', producto.productoID]">
-      <img [src]="producto.imagen.imagenUrl" alt="{{producto.nombre}}">
+  <div *ngFor="let producto of catalogo" class="tarjeta" [routerLink]="['/detalles', producto.productoID]">
+      <img [src]="backendUrl +producto.imagen.imagenUrl" alt="{{producto.nombre}}">
       <h2>{{producto.nombre}}</h2>
       <p>Precio: {{producto.precio}}€</p>
-    </a>
   </div>
 </div>
