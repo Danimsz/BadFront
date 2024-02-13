@@ -1,33 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { Producto } from '../producto.model';
-import { CatalogoService } from '../catalogo.service';
-
+import { ActivatedRoute } from '@angular/router';
+import { ProductoService } from '../producto.service'; // Asegúrate de importar el servicio ProductoService
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-detallesproducto',
+  selector: 'app-detalles-producto',
   templateUrl: './detallesproducto.component.html',
   styleUrls: ['./detallesproducto.component.css']
 })
-export class DetallesproductoComponent implements OnInit  {
-  catalogo: Producto[] = [];
-  constructor(private catalogoService: CatalogoService) { }
-
-  ngOnInit(): void {
-    this.obtenerCatalogo();
+export class DetallesproductoComponent implements OnInit {
+  
+  unsubs: Subscription | null = null;
+  id: number = 0;
+  
+  ngOnInit() {
+    this.unsubs = this.route.params.subscribe((data) => {
+    this.id = data['id'];
+    })
+     this.obtenerDetallesProducto(this.id);
   }
+  constructor(private route: ActivatedRoute, private productoService: ProductoService) { } // Inyecta ProductoService aquí
+  productoDetalle: any;
+  backendUrl = 'http://localhost:5174/';
 
-  obtenerCatalogo(): void {
-    this.catalogoService.obtenerCatalogo()
-      .subscribe(
-        (data) => {
-          this.catalogo = data;
-        },
-        (error) => {
-          console.error('Error al obtener el catálogo de productos', error);
-        }
-      );
+
+   obtenerDetallesProducto(id: number): void {
+    this.productoService.obtenerDetallesProducto(id).then(producto =>{
+      this.productoDetalle = producto
+    })
   }
 }
-
-
-
