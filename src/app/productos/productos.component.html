@@ -1,8 +1,8 @@
 <div class="catalogo">
   <div *ngFor="let producto of catalogo" class="tarjeta" [routerLink]="['/detalles', producto.productoID]">
       <img [src]="backendUrl +producto.imagen.imagenUrl" alt="{{producto.nombre}}">
-      <h2>{{producto.nombre}}</h2>
-      <p>Precio: {{producto.precio}}€</p>
+      <h4>{{producto.nombre}}</h4>
+      <h5><a style="color: rgb(23, 137, 8);">{{producto.precio}}€</a></h5>
   </div>
 </div>
 
