@@ -3,12 +3,20 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'; // Importa el servicio Router
+import { AutenticacionService } from '../autenticacion.service';
+
+interface RespuestaServidor {
+  //stringToken: string;
+  idUsuario: string;
+  idCesta: string;
+}
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css'],
 })
+
 export class RegistroComponent {
   isLoginForm = true;
   registerDto: any = {};
@@ -19,8 +27,9 @@ export class RegistroComponent {
   welcomeMessage: string = '';
   loginError: string = '';
   registerError: string = '';
+
   // Inyecta el servicio Router en el constructor
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private autenticacion: AutenticacionService) {}
 
   toggleForm() {
     this.isLoginForm = !this.isLoginForm;
@@ -30,10 +39,24 @@ export class RegistroComponent {
     this.http.post(`${this.apiUrl}/Login`, loginDto, { responseType: 'text' })
       .subscribe(
         (response) => {
+
+          //Cogemos idUsuario e idCesta de response
+          const idUsuarioIndice = response.indexOf('idUsuario: ') + 'idUsuario: '.length;
+          const idCestaIndice = response.indexOf('idCesta: ') + 'idCesta: '.length;
+
+          //Obtenemos id usuario y el cesta
+          const idUsuario = response.substring(idUsuarioIndice, response.indexOf(' ', idUsuarioIndice));
+          const idCesta = response.substring(idCestaIndice, response.indexOf(' ', idCestaIndice));
+
           console.log('Inicio de sesión exitoso', response);
+          console.log(`idUsuario: ${idUsuario}, idCesta: ${idCesta}`);
   
           // Almacena el nombre de usuario
           const username = loginDto.userName;
+
+          //Guardamos la informacion del usuario
+          this.autenticacion.guardarDatosUsuario(idUsuario, idCesta);
+          console.log("Ahora si id Usuario: "+ idUsuario +"id Cesta: "+ idCesta + "soy la mejor");
   
           // Asigna el mensaje de bienvenida
           this.welcomeMessage = `Te gustan los patos? y las zapatillas? Bienvenid@ ${username}! este es tu sitio y es peligroso.`;
@@ -87,4 +110,7 @@ export class RegistroComponent {
       this.passwordMismatchError = true;
     }
   }
+
+
+
 }
