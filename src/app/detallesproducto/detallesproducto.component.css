@@ -1,0 +1,18 @@
+.producto-detalle {
+    display: flex;
+  }
+  
+  .imagen-producto {
+    flex: 1;
+  }
+  
+  .imagen-producto img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .info-producto {
+    flex: 2;
+    padding-left: 50px;
+  }
+  
