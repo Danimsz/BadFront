@@ -14,13 +14,21 @@ export class CestaComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerProductosEnCesta();
+    
   }
 
   obtenerProductosEnCesta(): void {
     this.cestaService.verProductosCesta()
       .subscribe(
         (data) => {
-          this.productosEnCesta = data;
+          console.log('Datos recibidos del servicio:', data);
+  
+          // Verificar si 'data' tiene la estructura esperada
+          if (Array.isArray(data)) {
+            this.productosEnCesta = data;
+          } else {
+            console.error('La respuesta del servicio no tiene la estructura esperada:', data);
+          }
         },
         (error) => {
           console.error('Error al obtener productos en la cesta', error);
@@ -43,16 +51,25 @@ export class CestaComponent implements OnInit {
   quitarProducto(productoId: number): void {
     this.cestaService.quitarProductoCesta(productoId)
       .subscribe(
-        () => {
-          this.obtenerProductosEnCesta();
-        },
+        (data) => {
+        // Actualiza la cantidad del producto en productosEnCesta
+        const productoIndex = this.productosEnCesta.findIndex(producto => producto.id === productoId);
+        if (productoIndex !== -1) {
+          this.productosEnCesta[productoIndex].cantidad = data.cantidad;
+
+          // Si la cantidad es 0, elimina el producto de la cesta
+          if (data.cantidad === 0) {
+            this.productosEnCesta = this.productosEnCesta.filter(producto => producto.id !== productoId);
+          }
+        }
+      },
         (error) => {
           console.error('Error al quitar producto de la cesta', error);
         }
       );
   }
   
-  actualizarProducto(productoId: number, cantidad: number): void {
+ /* actualizarProducto(productoId: number, cantidad: number): void {
     this.cestaService.actualizarProductoCesta(productoId, cantidad)
       .subscribe(
         () => {
@@ -61,6 +78,5 @@ export class CestaComponent implements OnInit {
         (error) => {
           console.error('Error al actualizar la cantidad del producto en la cesta', error);
         }
-      );
-}
+      );*/
 }

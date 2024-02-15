@@ -16,8 +16,8 @@ export class CestaService {
     });
   }
 
-  verProductosCesta(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}CestaProductos/${this.userId}/productos`);
+  verProductosCesta(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}CestaProductos/${this.userId}/productos`);
   }
 
   agregarProductoCesta(productoId: number, cantidad: number): Observable<any> {
@@ -30,9 +30,9 @@ export class CestaService {
     return this.http.delete(`${this.apiUrl}CestaProductos/${this.userId}/quitar`, { body: body });
   }
 
-  actualizarProductoCesta(productoId: number, cantidad: number): Observable<any> {
-    const body = { ProductoID: productoId, Cantidad: cantidad };
-    return this.http.put(`${this.apiUrl}CestaProductos/${this.userId}/actualizar`, body);
+ // actualizarProductoCesta(productoId: number, cantidad: number): Observable<any> {
+  //  const body = { ProductoID: productoId, Cantidad: cantidad };
+  //  return this.http.put(`${this.apiUrl}CestaProductos/${this.userId}/actualizar`, body);
 }
-}
+
 

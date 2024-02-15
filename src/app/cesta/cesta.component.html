@@ -1,8 +1,18 @@
-<div *ngFor="let producto of productosEnCesta" class="productocesta">
+
+<!--<div *ngFor="let producto of productosEnCesta" class="productocesta">
   <div class="productoimagen">
       <img [src]="backendUrl + producto.imagen.imagenUrl" alt="{{producto.nombre}}">
+
       <button (click)="quitarProducto(producto.productoID)">Quitar de la cesta</button>
+  </div> 
+
+  <div *ngFor="let producto of productosEnCesta">
+    <img [src]="producto.imagenUrl" alt="Producto Imagen">
+    <h3>{{ producto.nombre }}</h3>
+    <p>{{ producto.precio }}</p>
+     
   </div>
+
   <div class="productonombre">
     <h3>{{ producto.nombre }}</h3>
   </div>
@@ -13,4 +23,17 @@
   <div class="productoprecio">
       <p>Precio: {{ producto.precio }}</p>
   </div>
+</div>
+
+<div *ngFor="let producto of productosEnCesta">
+  <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
+  <button (click)="quitarProducto(producto.productoID)">Quitar de la cesta</button>
+</div>-->
+
+
+<div *ngFor="let producto of productosEnCesta">
+  <img [src]="producto.imagen" alt="{{ producto.nombre }}">
+  <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
+  <button (click)="agregarProducto(producto.id, 1)">Añadir</button>
+  <button (click)="quitarProducto(producto.id)">Quitar</button>
 </div>
