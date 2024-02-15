@@ -8,6 +8,7 @@ import { CestaService } from '../cesta.service';
 })
 export class CestaComponent implements OnInit {
   productosEnCesta: any[] = [];
+  backendUrl = 'http://localhost:5174/';
 
   constructor(private cestaService: CestaService) {}
 
@@ -50,4 +51,16 @@ export class CestaComponent implements OnInit {
         }
       );
   }
+  
+  actualizarProducto(productoId: number, cantidad: number): void {
+    this.cestaService.actualizarProductoCesta(productoId, cantidad)
+      .subscribe(
+        () => {
+          console.log('Cantidad de producto actualizada correctamente');
+        },
+        (error) => {
+          console.error('Error al actualizar la cantidad del producto en la cesta', error);
+        }
+      );
+}
 }

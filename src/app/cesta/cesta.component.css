@@ -92,3 +92,28 @@ h1 {
     background-color: #700d14;
 }
 
+
+.productocesta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.productoimagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productocantidad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productoprecio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

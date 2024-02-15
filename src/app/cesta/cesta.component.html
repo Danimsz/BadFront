@@ -1,6 +1,16 @@
-<div *ngFor="let producto of productosEnCesta">
-    <h3>{{ producto.nombre }}</h3>
-    <p>Precio: {{ producto.precio }}</p>
-    <p>Cantidad: {{ producto.cantidad }}</p>
-    <button (click)="quitarProducto(producto.productoID)">Quitar de la cesta</button>
+<div *ngFor="let producto of productosEnCesta" class="productocesta">
+  <div class="productoimagen">
+      <img [src]="backendUrl + producto.imagen.imagenUrl" alt="{{producto.nombre}}">
+      <button (click)="quitarProducto(producto.productoID)">Quitar de la cesta</button>
   </div>
+  <div class="productonombre">
+    <h3>{{ producto.nombre }}</h3>
+  </div>
+  <div class="productocantidad">
+      <label for="cantidad">Cantidad:</label>
+      <input type="number" id="cantidad" name="cantidad" min="1" [(ngModel)]="producto.cantidad">
+  </div>
+  <div class="productoprecio">
+      <p>Precio: {{ producto.precio }}</p>
+  </div>
+</div>

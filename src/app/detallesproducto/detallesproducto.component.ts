@@ -12,6 +12,7 @@ import { CestaService } from '../cesta.service';
 export class DetallesproductoComponent implements OnInit {
   unsubs: Subscription | null = null;
   id: number = 0;
+  cantidadProducto = 1;
 
   ngOnInit() {
     this.unsubs = this.route.params.subscribe((data) => {
@@ -36,17 +37,15 @@ export class DetallesproductoComponent implements OnInit {
   }
 
   agregarAlCarrito(): void {
-    const productoId = this.productoDetalle.productoID;
-    const cantidad = 1;
-
-    this.cestaService.agregarProductoCesta(productoId, cantidad)
-      .subscribe(
-        () => {
-          console.log('Producto añadido a la cesta correctamente');
-        },
-        (error) => {
-          console.error('Error al agregar producto a la cesta', error);
-        }
-      );
+      const productoId = this.productoDetalle.productoID;
+      this.cestaService.agregarProductoCesta(productoId, this.cantidadProducto)
+        .subscribe(
+          () => {
+            console.log('Producto añadido a la cesta correctamente');
+          },
+          (error) => {
+            console.error('Error al agregar producto a la cesta', error);
+          }
+        );
   }
 }
