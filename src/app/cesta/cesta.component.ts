@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CestaService } from '../cesta.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-cesta',
@@ -8,13 +9,17 @@ import { CestaService } from '../cesta.service';
 })
 export class CestaComponent implements OnInit {
   productosEnCesta: any[] = [];
+  userId: number | null = null;
   backendUrl = 'http://localhost:5174/';
 
-  constructor(private cestaService: CestaService) {}
+  constructor(private cestaService: CestaService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.obtenerProductosEnCesta();
-    
+    //Obtener el id del usuario
+    this.authService.getUserId().subscribe((id) => {
+      this.userId = id;
+    });
   }
 
   obtenerProductosEnCesta(): void {

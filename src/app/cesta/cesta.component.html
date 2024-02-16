@@ -31,6 +31,10 @@
 </div>-->
 
 
+  <h1>CESTA DE USUARIO CON ID {{userId}}</h1>
+
+
+
 <div *ngFor="let producto of productosEnCesta">
   <img [src]="producto.imagen" alt="{{ producto.nombre }}">
   <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
