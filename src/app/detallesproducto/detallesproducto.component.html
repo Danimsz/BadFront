@@ -8,6 +8,7 @@
     <p>{{ productoDetalle.cantidad }}</p>
     <p>{{ productoDetalle.categoria }}</p>
     <p>{{ productoDetalle.descripcion }}</p>
-    <button>Añadir al carrito</button>
+    <input type="number" min="1" [(ngModel)]="cantidadProducto" />
+    <button (click)="agregarAlCarrito()">Añadir al carrito</button>
   </div>
 </div>

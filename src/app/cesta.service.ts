@@ -1,14 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CestaService {
+  private apiUrl = 'http://localhost:5174/';
+  private userId: number | null = null;
 
-  private url = 'http://localhost5174/Cesta';
+  constructor(private http: HttpClient, private authService: AuthService) {
+    this.authService.getUserId().subscribe(userId => {
+      this.userId = userId;
+    });
+  }
 
-  constructor(private http: HttpClient) { }
+  verProductosCesta(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}CestaProductos/${this.userId}/productos`);
+  }
 
-  
+  agregarProductoCesta(productoId: number, cantidad: number): Observable<any> {
+    const body = { ProductoID: productoId, Cantidad: cantidad };
+    return this.http.post(`${this.apiUrl}CestaProductos/${this.userId}/añadir`, body);
 }
+
+  quitarProductoCesta(productoId: number): Observable<any> {
+    const body = { ProductoID: productoId };
+    return this.http.delete(`${this.apiUrl}CestaProductos/${this.userId}/quitar`, { body: body });
+  }
+
+ // actualizarProductoCesta(productoId: number, cantidad: number): Observable<any> {
+  //  const body = { ProductoID: productoId, Cantidad: cantidad };
+  //  return this.http.put(`${this.apiUrl}CestaProductos/${this.userId}/actualizar`, body);
+}
+
+

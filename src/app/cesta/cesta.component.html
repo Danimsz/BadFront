@@ -1,39 +1,43 @@
-<body>
-    <div class="container">
-        <h1>Tu Cesta de Compras</h1>
 
-        <!--Aqui deberia ir un ngfor con la lista de productos que se añaden a la cesta-->
+<!--<div *ngFor="let producto of productosEnCesta" class="productocesta">
+  <div class="productoimagen">
+      <img [src]="backendUrl + producto.imagen.imagenUrl" alt="{{producto.nombre}}">
 
-        <div class="producto">
-            <img src="zapatilla1.jpg" alt="Zapatilla 1" class="imagenProducto">
-            <div class="infoProducto">
-                <h2>Zapatilla Deportiva 1</h2>
-                <p>Descripción del producto...</p>
-                <p class="precio">99.99€</p>
-                <button class="btnCantidad" onclick="decrementarCantidad(this)">-</button>
-                    <span class="cantidadNumero">1</span>
-                    <button class="btnCantidad" onclick="incrementarCantidad(this)">+</button>
-                <button class="btnEliminar">Eliminar</button>
-            </div>
-        </div>
+      <button (click)="quitarProducto(producto.productoID)">Quitar de la cesta</button>
+  </div> 
 
-        <div class="producto">
-            <img src="zapatilla2.jpg" alt="Zapatilla 2" class="imagenProducto">
-            <div class="infoProducto">
-                <h2>Zapatilla Deportiva 2</h2>
-                <p>Descripción del producto...</p>
-                <p class="precio">79.99€</p>
-                <button class="btnCantidad" onclick="decrementarCantidad(this)">-</button>
-                    <span class="cantidadNumero">1</span>
-                    <button class="btnCantidad" onclick="incrementarCantidad(this)">+</button>
-                <button class="btnEliminar">Eliminar</button>
-            </div>
-        </div>
+  <div *ngFor="let producto of productosEnCesta">
+    <img [src]="producto.imagenUrl" alt="Producto Imagen">
+    <h3>{{ producto.nombre }}</h3>
+    <p>{{ producto.precio }}</p>
+     
+  </div>
 
-        <div class="total">
-            Total: 179.98€
-        </div>
+  <div class="productonombre">
+    <h3>{{ producto.nombre }}</h3>
+  </div>
+  <div class="productocantidad">
+      <label for="cantidad">Cantidad:</label>
+      <input type="number" id="cantidad" name="cantidad" min="1" [(ngModel)]="producto.cantidad">
+  </div>
+  <div class="productoprecio">
+      <p>Precio: {{ producto.precio }}</p>
+  </div>
+</div>
 
-        <button class="btnFinalizarCompra">Finalizar Compra</button>
-    </div>
-</body>
+<div *ngFor="let producto of productosEnCesta">
+  <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
+  <button (click)="quitarProducto(producto.productoID)">Quitar de la cesta</button>
+</div>-->
+
+
+  <h1>CESTA DE USUARIO CON ID {{userId}}</h1>
+
+
+
+<div *ngFor="let producto of productosEnCesta">
+  <img [src]="producto.imagen" alt="{{ producto.nombre }}">
+  <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
+  <button (click)="agregarProducto(producto.id, 1)">Añadir</button>
+  <button (click)="quitarProducto(producto.id)">Quitar</button>
+</div>
