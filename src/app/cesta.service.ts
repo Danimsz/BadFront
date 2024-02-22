@@ -20,14 +20,15 @@ export class CestaService {
     return this.http.get<any[]>(`${this.apiUrl}CestaProductos/${this.userId}/productos`);
   }
 
+  //Observable string porque el servidor nos envia un mensaje de texto (return ok("el producto se ha añadido"))
   agregarProductoCesta(productoId: number, cantidad: number): Observable<any> {
     const body = { ProductoID: productoId, Cantidad: cantidad };
-    return this.http.post(`${this.apiUrl}CestaProductos/${this.userId}/añadir`, body);
-}
+    return this.http.post<string>(`${this.apiUrl}CestaProductos/${this.userId}/añadir`, body);
+  }
 
   quitarProductoCesta(productoId: number): Observable<any> {
     const body = { ProductoID: productoId };
-    return this.http.delete(`${this.apiUrl}CestaProductos/${this.userId}/quitar`, { body: body });
+    return this.http.delete<string>(`${this.apiUrl}CestaProductos/${this.userId}/quitar`, { body: body });
   }
 
  // actualizarProductoCesta(productoId: number, cantidad: number): Observable<any> {

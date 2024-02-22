@@ -13,6 +13,7 @@ import { AboutUSComponent } from './about-us/about-us.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CestaComponent } from './cesta/cesta.component';
 import { DetallesproductoComponent } from './detallesproducto/detallesproducto.component';
+import { ConfirmacionCompraComponent } from './confirmacion-compra/confirmacion-compra.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DetallesproductoComponent } from './detallesproducto/detallesproducto.c
     ProductosComponent,
     AboutUSComponent,
     CestaComponent,
-    DetallesproductoComponent
+    DetallesproductoComponent,
+    ConfirmacionCompraComponent
   ],
   imports: [
     BrowserModule,

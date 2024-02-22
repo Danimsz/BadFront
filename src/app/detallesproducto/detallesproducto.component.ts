@@ -40,8 +40,8 @@ export class DetallesproductoComponent implements OnInit {
       const productoId = this.productoDetalle.productoID;
       this.cestaService.agregarProductoCesta(productoId, this.cantidadProducto)
         .subscribe(
-          () => {
-            console.log('Producto añadido a la cesta correctamente');
+          (mensaje: string) => {
+            console.log('Mensaje del servidor;', mensaje);
           },
           (error) => {
             console.error('Error al agregar producto a la cesta', error);
