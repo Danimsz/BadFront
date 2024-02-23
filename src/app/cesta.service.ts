@@ -25,10 +25,9 @@ export class CestaService {
     return this.http.post(`${this.apiUrl}CestaProductos/${this.userId}/añadir`, body);
 }
 
-  quitarProductoCesta(productoId: number): Observable<any> {
-    const body = { ProductoID: productoId };
-    return this.http.delete(`${this.apiUrl}CestaProductos/${this.userId}/quitar`, { body: body });
-  }
+quitarProductoCesta(productoId: number): Observable<any> {
+  return this.http.delete(`${this.apiUrl}CestaProductos/${this.userId}/quitar/${productoId}`);
+}
 
  // actualizarProductoCesta(productoId: number, cantidad: number): Observable<any> {
   //  const body = { ProductoID: productoId, Cantidad: cantidad };
