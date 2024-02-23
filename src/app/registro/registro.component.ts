@@ -51,7 +51,7 @@ export class RegistroComponent {
           // Después de 3 segundos, redirige a la página de inicio
           setTimeout(() => {
             this.router.navigate(['/inicio']); // Ajusta la ruta según tu configuración
-          }, 5000);
+          }, 1000);
         },
         (error) => {
           console.error('Error al iniciar sesión', error);
@@ -67,9 +67,9 @@ export class RegistroComponent {
       this.passwordMismatchError = false;
 
       this.http.post<any>(`${this.apiUrl}/Register`, registerDto)
-        .subscribe(
-          (response) => {
-            console.log('Registro exitoso pichita', response);
+    .subscribe(
+        (response) => {
+            console.log('Registro exitoso', response);
 
             // Obtén el ID del usuario y el ID de la cesta desde la respuesta del servidor
             const userId = response.userId;
@@ -77,7 +77,6 @@ export class RegistroComponent {
 
             // Llama al método login del AuthService para establecer el estado de autenticación y los IDs
             this.authService.login(userId, cestaId);
-
             this.registrationSuccess = true;
 
             // Reinicia el mensaje de error
@@ -86,7 +85,7 @@ export class RegistroComponent {
             // Después de un tiempo, cambiar al formulario de inicio de sesión
             setTimeout(() => {
               this.toggleForm();
-            }, 3000);
+            }, 1000);
           },
           (error) => {
             console.error('Error al registrar usuario', error);
