@@ -7,8 +7,13 @@ se les enviara a iniciar sesion.
 - El usuario recibira un email de la factura
 - Se vaciará el carrito guardado en local
 - Si tiene una cesta en base de datos, no se borrará
-- La compra realizada se guardará en base de dartos
+- La compra realizada se guardará en base de datos
 - Se reducira el stock de los productos que se han comprado
 <br>
+<div *ngFor="let producto of productosEnCesta">
+    <img [src]="producto.imagen" alt="{{ producto.nombre }}">
+    <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
+    <p>{{ producto.precio }}€</p>
+</div>
 <br>
 <button>Realizar Compra</button>

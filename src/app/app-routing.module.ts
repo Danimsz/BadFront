@@ -5,6 +5,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { ProductosComponent } from './productos/productos.component';
 import { AboutUSComponent } from './about-us/about-us.component';
 import { CestaComponent } from './cesta/cesta.component';
+import { ConfirmacionCompraComponent } from './confirmacion-compra/confirmacion-compra.component';
 import { DetallesproductoComponent } from './detallesproducto/detallesproducto.component';
 
 
@@ -15,8 +16,8 @@ const routes: Routes = [
    {path: 'productos', component: ProductosComponent},
    {path: 'aboutus', component: AboutUSComponent},
    {path: 'cesta', component: CestaComponent},
+   {path: 'confirmacion-compra', component: ConfirmacionCompraComponent},
    {path: 'detalles/:id', component: DetallesproductoComponent},
-
    {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];
 
