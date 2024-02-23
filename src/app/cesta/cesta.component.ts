@@ -55,34 +55,33 @@ export class CestaComponent implements OnInit {
   }
 
   quitarProducto(productoId: number): void {
-    this.cestaService.quitarProductoCesta(productoId)
-      .subscribe(
-        (data) => {
-        // Actualiza la cantidad del producto en productosEnCesta
-        const productoIndex = this.productosEnCesta.findIndex(producto => producto.id === productoId);
-        if (productoIndex !== -1) {
-          this.productosEnCesta[productoIndex].cantidad = data.cantidad;
-
-          // Si la cantidad es 0, elimina el producto de la cesta
-          if (data.cantidad === 0) {
-            this.productosEnCesta = this.productosEnCesta.filter(producto => producto.id !== productoId);
+    console.log('Producto ID:', productoId); // Agregar esta línea para verificar el productoId
+    if (productoId !== undefined) {
+      this.cestaService.quitarProductoCesta(productoId)
+        .subscribe(
+          (data) => {
+            // Verifica si data tiene la propiedad 'cantidad'
+            if (data && data.cantidad !== undefined) {
+              // Actualiza la cantidad del producto en productosEnCesta
+              const productoIndex = this.productosEnCesta.findIndex(producto => producto.productoId === productoId);
+              if (productoIndex !== -1) {
+                this.productosEnCesta[productoIndex].cantidad = data.cantidad;
+    
+                // Si la cantidad es 0, elimina el producto de la cesta
+                if (data.cantidad === 0) {
+                  this.productosEnCesta.splice(productoIndex, 1);
+                }
+              }
+            } else {
+              console.error('La respuesta del servidor no contiene la propiedad "cantidad".', data);
+            }
+          },
+          (error) => {
+            console.error('Error al quitar producto de la cesta', error);
           }
-        }
-      },
-        (error) => {
-          console.error('Error al quitar producto de la cesta', error);
-        }
-      );
+        );
+    } else {
+      console.error('El productoId es undefined');
+    }
   }
-  
- /* actualizarProducto(productoId: number, cantidad: number): void {
-    this.cestaService.actualizarProductoCesta(productoId, cantidad)
-      .subscribe(
-        () => {
-          console.log('Cantidad de producto actualizada correctamente');
-        },
-        (error) => {
-          console.error('Error al actualizar la cantidad del producto en la cesta', error);
-        }
-      );*/
 }
