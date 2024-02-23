@@ -11,7 +11,7 @@ export class CestaComponent implements OnInit {
   productosEnCesta: any[] = [];
   userId: number | null = null;
   backendUrl = 'http://localhost:5174/';
-  cantidadEnCesta: number = 0;
+  precioTotal: number = 0;
 
   constructor(private cestaService: CestaService, private authService: AuthService) {}
 
