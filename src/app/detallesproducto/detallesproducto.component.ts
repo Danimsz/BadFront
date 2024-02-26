@@ -13,6 +13,7 @@ export class DetallesproductoComponent implements OnInit {
   unsubs: Subscription | null = null;
   id: number = 0;
   cantidadProducto = 1;
+  mostrarMensaje: boolean = false;
 
   ngOnInit() {
     this.unsubs = this.route.params.subscribe((data) => {
@@ -42,10 +43,15 @@ export class DetallesproductoComponent implements OnInit {
         .subscribe(
           (mensaje: string) => {
             console.log('Mensaje del servidor;', mensaje);
+            this.mostrarMensaje = true; 
+          setTimeout(() => {
+            this.mostrarMensaje = false; 
+          }, 3000); //para que dure 3 segundos
           },
           (error) => {
             console.error('Error al agregar producto a la cesta', error);
           }
         );
   }
+  
 }
