@@ -5,8 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class EthPipe implements PipeTransform {
 
-  transform(value: number): number {
-    return 0;
+  transform(precio: number): number {
+    const etherium = 0.00036;
+    const euroAEtherium = precio * etherium;
+
+    return Math.round(euroAEtherium * 1e4) / 1e4;
   }
 
 }
