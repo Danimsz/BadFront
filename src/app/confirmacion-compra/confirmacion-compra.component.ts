@@ -30,7 +30,7 @@ export class ConfirmacionCompraComponent implements OnInit{
   
           if (Array.isArray(data)) {
             this.productosEnCesta = data;
-            this.precioTotal = this.productosEnCesta.reduce((total, producto) => total + producto.precio, 0);
+            this.precioTotal = this.productosEnCesta.reduce((total, producto) => total + (producto.precio * producto.cantidad), 0);
           } else {
             console.error('La respuesta del servicio no tiene la estructura esperada:', data);
           }
