@@ -11,6 +11,7 @@ export class ConfirmacionCompraComponent implements OnInit{
   productosEnCesta: any[] = [];
   userId: number | null = null;
   backendUrl = 'http://localhost:5174/';
+  precioTotal: number = 0;
   
   constructor(private cestaService: CestaService, private authService: AuthService){}
   
@@ -29,6 +30,7 @@ export class ConfirmacionCompraComponent implements OnInit{
   
           if (Array.isArray(data)) {
             this.productosEnCesta = data;
+            this.precioTotal = this.productosEnCesta.reduce((total, producto) => total + (producto.precio * producto.cantidad), 0);
           } else {
             console.error('La respuesta del servicio no tiene la estructura esperada:', data);
           }

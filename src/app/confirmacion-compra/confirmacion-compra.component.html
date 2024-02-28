@@ -1,20 +1,17 @@
-<p>confirmacion-compra works!</p>
-- Solo los usuarios que han iniciado sesion podran ver este componente, si no estan logueados
-se les enviara a iniciar sesion.
-- Se mostraran todos los productos que va a comprar el usuarios- Su imagen, nombre, precio y cantidad
-- Cantidad total en euros y en ethereum
-- Boton de Realizar Compra
-- El usuario recibira un email de la factura
-- Se vaciará el carrito guardado en local
-- Si tiene una cesta en base de datos, no se borrará
-- La compra realizada se guardará en base de datos
-- Se reducira el stock de los productos que se han comprado
-<h1>CONFIRMACIÓN COMPRA DE ID {{userId}}</h1>
+<h1>PEDIDO DE USUARIO CON ID {{userId}}</h1>
 <br>
+<p>- PRODUCTOS -</p>
 <div *ngFor="let producto of productosEnCesta">
     <img [src]="producto.imagen" alt="{{ producto.nombre }}">
     <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
     <p>{{ producto.precio }}€</p>
 </div>
+<hr>
+<p>- TOTAL -</p>
+<p>Euros: {{ precioTotal }} €</p>
+<p>Etherium: {{ precioTotal | eth }} ETH</p>
+<hr>
+<p>- FORMA DE PAGO -</p>
+
 <br>
-<button>Realizar Compra</button>
+<button>Realizar Pago</button>

@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CestaComponent } from './cesta/cesta.component';
 import { DetallesproductoComponent } from './detallesproducto/detallesproducto.component';
 import { ConfirmacionCompraComponent } from './confirmacion-compra/confirmacion-compra.component';
+import { EthPipe } from './eth.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ConfirmacionCompraComponent } from './confirmacion-compra/confirmacion-
     AboutUSComponent,
     CestaComponent,
     DetallesproductoComponent,
-    ConfirmacionCompraComponent
+    ConfirmacionCompraComponent,
+    EthPipe
   ],
   imports: [
     BrowserModule,
