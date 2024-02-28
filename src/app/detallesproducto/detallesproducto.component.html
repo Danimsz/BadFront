@@ -10,5 +10,6 @@
     <p>{{ productoDetalle.descripcion }}</p>
     <input type="number" min="1" [(ngModel)]="cantidadProducto" />
     <button (click)="agregarAlCarrito()">Añadir al carrito</button>
+    <button (click)="appComponent.buyProduct(productoDetalle)">Comprar</button>
   </div>
 </div>

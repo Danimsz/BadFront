@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductoService } from '../producto.service';
 import { Subscription } from 'rxjs';
 import { CestaService } from '../cesta.service';
+import { AppComponent } from '../app.component';
+import { DetallesProducto, Transaction, Producto } from '../producto.model';
+
 
 @Component({
   selector: 'app-detalles-producto',
@@ -24,6 +27,7 @@ export class DetallesproductoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productoService: ProductoService,
+    public appComponent: AppComponent,
     private cestaService: CestaService
   ) {}
 
