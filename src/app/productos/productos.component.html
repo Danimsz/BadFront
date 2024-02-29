@@ -1,9 +1,29 @@
-<div class="catalogo">
-  <div *ngFor="let producto of catalogo" class="tarjeta" [routerLink]="['/detalles', producto.productoID]">
-      <img [src]="backendUrl +producto.imagen.imagenUrl" alt="{{producto.nombre}}">
-      <h4>{{producto.nombre}}</h4>
-      <h5><a style="color: rgb(23, 137, 8);">{{producto.precio}}€</a></h5>
+<div class="header">
+
+  <i class="fas fa-search"></i> <!-- Icono de lupa -->
+
+  <div class="search-container">
+    
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar...">
   </div>
+
+  <div class="dropdown">
+    <button class="dropbtn" (click)="toggleDropdown()">Categorías</button>
+    <div class="dropdown-content" *ngIf="mostrarDropdown">
+      <button (click)="selectCategory('jordan')">JORDAN</button>
+      <button (click)="selectCategory('nike')">NIKE</button>
+      <button (click)="selectCategory('air')">AIR</button>
+    </div>
+  </div>
+
 </div>
 
-<!--Comentario Anonio-->
+<div class="catalogo-container">
+  <div class="catalogo">
+    <div *ngFor="let producto of catalogo | filter:searchTerm" class="tarjeta" [routerLink]="['/detalles', producto.productoID]">
+        <img [src]="backendUrl +producto.imagen.imagenUrl" alt="{{producto.nombre}}" style="border-radius: 10px;">
+        <h5 style="color: rgb(252, 255, 251);">{{producto.nombre}}</h5>
+        <h4><a style="color: rgb(143, 221, 133);">{{producto.precio}}€</a></h4>
+    </div>
+  </div>
+</div>
