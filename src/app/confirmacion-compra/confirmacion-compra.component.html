@@ -2,8 +2,8 @@
 <br>
 <p>- PRODUCTOS -</p>
 <div *ngFor="let producto of productosEnCesta">
-    <img [src]="backendUrl + producto.imagenUrl" alt="{{ producto.nombre }}">
-    <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
+    <img [src]="backendUrl + producto.imagen.imagenUrl">
+    <p>{{ producto.nombre }} - cantidad: {{ producto.cantidad }}</p>
     <p>{{ producto.precio }}€</p>
 </div>
 <hr>

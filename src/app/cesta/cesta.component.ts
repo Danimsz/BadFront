@@ -33,6 +33,7 @@ export class CestaComponent implements OnInit {
           // Verificar si 'data' tiene la estructura esperada
           if (Array.isArray(data)) {
             this.productosEnCesta = data;
+            console.log(this.productosEnCesta)
           } else {
             console.error('La respuesta del servicio no tiene la estructura esperada:', data);
           }

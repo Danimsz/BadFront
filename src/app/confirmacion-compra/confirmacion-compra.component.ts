@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CestaService } from '../cesta.service';
 import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
-import { Transaction } from '../producto.model';
+import { Transaction, Producto, Imagen, DetallesProducto } from '../producto.model';
 import { lastValueFrom } from 'rxjs';
 
 @Component({
@@ -13,7 +13,7 @@ import { lastValueFrom } from 'rxjs';
 export class ConfirmacionCompraComponent implements OnInit {
   productosEnCesta: any[] = [];
   userId: number | null = null;
-  backendUrl = 'https://localhost:5174/';
+  backendUrl = 'http://localhost:5174/';
   precioTotal: number = 0;
   
   constructor(private cestaService: CestaService, private authService: AuthService, private http: HttpClient) {}
@@ -33,6 +33,7 @@ export class ConfirmacionCompraComponent implements OnInit {
   
           if (Array.isArray(data)) {
             this.productosEnCesta = data;
+            console.log(this.productosEnCesta)
             this.precioTotal = this.productosEnCesta.reduce((total, producto) => total + (producto.precio * producto.cantidad), 0);
           } else {
             console.error('La respuesta del servicio no tiene la estructura esperada:', data);
@@ -45,14 +46,19 @@ export class ConfirmacionCompraComponent implements OnInit {
   }
   async realizarPago(): Promise<void> {
     try {
-      const account = await this.getAccount();
-      const body = { ClientWallet: account, PrecioTotal: Number(this.precioTotal) }; // Convertir a número si es necesario
-  
-      const transaction = await this.post(`buy`, body) as Transaction;
-      console.log('Transacción realizada:', transaction);
-  
+    const account = await this.getAccount();
+    var accString = JSON.stringify(account);
+    accString = accString.replace(/['"]/g, '');
+    console.log(accString)
+    const formData = new FormData();
+    formData.append('clientWallet', accString);
+    formData.append('totalPrice', this.precioTotal.toString());
+
+    let request$ = await this.http.post<Transaction>(`${this.backendUrl}Pago/buy`, formData);
+    var transaction: any = await lastValueFrom(request$);
+    console.log(transaction);
       const txHash = await this.makeTransaction(transaction);
-      const transactionSuccess = await this.post(`check/${transaction.id}`, txHash);
+      const transactionSuccess = await this.post(`Pago/check/${transaction.id}`, JSON.stringify(txHash));
   
       console.log('Transacción verificada:', transactionSuccess);
   
