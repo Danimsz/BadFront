@@ -2,7 +2,7 @@
 <br>
 <p>- PRODUCTOS -</p>
 <div *ngFor="let producto of productosEnCesta">
-    <img [src]="producto.imagen" alt="{{ producto.nombre }}">
+    <img [src]="backendUrl + producto.imagenUrl" alt="{{ producto.nombre }}">
     <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
     <p>{{ producto.precio }}€</p>
 </div>
@@ -14,4 +14,4 @@
 <p>- FORMA DE PAGO -</p>
 
 <br>
-<button>Realizar Pago</button>
+<button (click)="realizarPago()">Realizar Pago</button>

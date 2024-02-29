@@ -33,9 +33,9 @@
 <h1>CESTA DE USUARIO ID {{userId}}</h1>
 
 <div *ngFor="let producto of productosEnCesta">
-  <img [src]="producto.imagenUrl" alt="{{ producto.nombre }}">
+  <img [src]="backendUrl + producto.imagenUrl" alt="{{ producto.nombre }}">
   <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
-  <button (click)="agregarProducto(producto.productoID, 1)">Añadir</button> <!-- Cambia 1 por la cantidad deseada -->
+  <button (click)="agregarProducto(producto.productoID, 1)">Añadir</button>
   <button (click)="quitarProducto(producto.productoID)">Quitar</button>
 </div>
 

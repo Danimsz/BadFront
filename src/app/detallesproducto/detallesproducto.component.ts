@@ -4,8 +4,6 @@ import { ProductoService } from '../producto.service';
 import { Subscription } from 'rxjs';
 import { CestaService } from '../cesta.service';
 import { AppComponent } from '../app.component';
-import { DetallesProducto, Transaction, Producto } from '../producto.model';
-
 
 @Component({
   selector: 'app-detalles-producto',
@@ -17,6 +15,8 @@ export class DetallesproductoComponent implements OnInit {
   id: number = 0;
   cantidadProducto = 1;
   mostrarMensaje: boolean = false;
+  productoDetalle: any;
+  backendUrl = 'http://localhost:5174/';
 
   ngOnInit() {
     this.unsubs = this.route.params.subscribe((data) => {
@@ -32,8 +32,7 @@ export class DetallesproductoComponent implements OnInit {
     private cestaService: CestaService
   ) {}
 
-  productoDetalle: any;
-  backendUrl = 'http://localhost:5174/';
+  
 
   obtenerDetallesProducto(id: number): void {
     this.productoService.obtenerDetallesProducto(id).then(producto => {
