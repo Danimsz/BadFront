@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
-import { DetallesProducto, Producto } from './producto.model'; // Asegúrate de importar el modelo Producto
+import { DetallesProducto} from './producto.model'; 
 
 @Injectable({
   providedIn: 'root'

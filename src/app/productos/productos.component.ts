@@ -12,6 +12,9 @@ import { ProductoService } from '../producto.service';
 export class ProductosComponent implements OnInit {
   catalogo: Producto[] = [];
   backendUrl = 'http://localhost:5174/';
+  searchTerm: string = '';
+  mostrarDropdown: boolean = false;
+ 
 
   constructor(private catalogoService: CatalogoService, private productoService: ProductoService, 
               private router: Router) { }
@@ -24,5 +27,13 @@ export class ProductosComponent implements OnInit {
     this.catalogoService.obtenerCatalogo().then(productos => {
       this.catalogo = productos;
     })
+  }
+
+  selectCategory(category: string): void {
+    this.searchTerm = category;
+  }
+
+  toggleDropdown() {
+    this.mostrarDropdown = !this.mostrarDropdown;
   }
 }

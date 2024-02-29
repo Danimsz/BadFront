@@ -15,6 +15,7 @@ import { CestaComponent } from './cesta/cesta.component';
 import { DetallesproductoComponent } from './detallesproducto/detallesproducto.component';
 import { ConfirmacionCompraComponent } from './confirmacion-compra/confirmacion-compra.component';
 import { EthPipe } from './eth.pipe';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EthPipe } from './eth.pipe';
     CestaComponent,
     DetallesproductoComponent,
     ConfirmacionCompraComponent,
-    EthPipe
+    EthPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

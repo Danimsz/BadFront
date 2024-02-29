@@ -12,6 +12,7 @@ export class CestaComponent implements OnInit {
   userId: number | null = null;
   backendUrl = 'http://localhost:5174/';
   precioTotal: number = 0;
+  productoDetalle: any;
 
   constructor(private cestaService: CestaService, private authService: AuthService) {}
 
@@ -32,6 +33,7 @@ export class CestaComponent implements OnInit {
           // Verificar si 'data' tiene la estructura esperada
           if (Array.isArray(data)) {
             this.productosEnCesta = data;
+            console.log(this.productosEnCesta)
           } else {
             console.error('La respuesta del servicio no tiene la estructura esperada:', data);
           }
@@ -55,7 +57,7 @@ export class CestaComponent implements OnInit {
   }
 
   quitarProducto(productoId: number): void {
-    console.log('Producto ID:', productoId); // Agregar esta línea para verificar el productoId
+    console.log('Producto ID:', productoId); 
     if (productoId !== undefined) {
       this.cestaService.quitarProductoCesta(productoId)
         .subscribe(
@@ -63,7 +65,7 @@ export class CestaComponent implements OnInit {
             // Verifica si data tiene la propiedad 'cantidad'
             if (data && data.cantidad !== undefined) {
               // Actualiza la cantidad del producto en productosEnCesta
-              const productoIndex = this.productosEnCesta.findIndex(producto => producto.productoId === productoId);
+              const productoIndex = this.productosEnCesta.findIndex(producto => producto.ProductoID === productoId);
               if (productoIndex !== -1) {
                 this.productosEnCesta[productoIndex].cantidad = data.cantidad;
     
