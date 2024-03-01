@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { toHex } from 'web3-utils';
 import { DetallesProducto, Transaction, Producto } from './producto.model'; 
 
 @Component({
