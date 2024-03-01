@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Transaction, Producto, Imagen, DetallesProducto } from '../producto.model';
 import { lastValueFrom } from 'rxjs';
+import { EthPipe } from '../eth.pipe';
 
 @Component({
   selector: 'app-confirmacion-compra',
@@ -15,8 +16,10 @@ export class ConfirmacionCompraComponent implements OnInit {
   userId: number | null = null;
   backendUrl = 'http://localhost:5174/';
   precioTotal: number = 0;
+  private txHash: string | null = null;
+  private clientWallet: string | null = null;
   
-  constructor(private cestaService: CestaService, private authService: AuthService, private http: HttpClient) {}
+  constructor(private cestaService: CestaService, private authService: AuthService, private http: HttpClient, private ethPipe: EthPipe) {}
   
   ngOnInit(): void {
     this.obtenerProductosEnCesta();
@@ -50,6 +53,8 @@ export class ConfirmacionCompraComponent implements OnInit {
     var accString = JSON.stringify(account);
     accString = accString.replace(/['"]/g, '');
     console.log(accString)
+    this.clientWallet = account;
+    
     const formData = new FormData();
     formData.append('clientWallet', accString);
     formData.append('totalPrice', this.precioTotal.toString());
@@ -61,17 +66,75 @@ export class ConfirmacionCompraComponent implements OnInit {
       const transactionSuccess = await this.post(`Pago/check/${transaction.id}`, JSON.stringify(txHash));
   
       console.log('Transacción verificada:', transactionSuccess);
-  
-      const transactionMessage = transactionSuccess
-        ? 'Transacción realizada con éxito :D'
-        : 'Transacción fallida :(';
-  
-      console.log(transactionMessage);
-    } catch (error) {
+      
+      if (transactionSuccess) {
+        this.txHash = txHash;
+        const pedidoSuccess = await this.postPedido();
+
+        console.log('Pedido creado:', pedidoSuccess);
+
+        const message = pedidoSuccess
+          ? 'Transacción y pedido realizados con éxito :D'
+          : 'Transacción realizada con éxito, pero fallo al crear el pedido :(';
+
+        console.log(message);
+      } else {
+        console.log('Transacción fallida, no se creará el pedido.');
+      }
+
+    }  catch (error: any) {
       console.error('Error al realizar el pago:', error);
+  
+
+      if (error.error && error.error.errors) {
+        console.error('Detalles de validación:', error.error.errors);
+      }
     }
   }
   
+  private async postPedido(): Promise<any> {
+    try {
+        this.productosEnCesta.forEach(producto => {
+          console.log('Producto:', producto);
+          console.log('Producto ID:', producto.productoID)
+            if (!producto.id || producto.id <= 0) {
+                console.error('El ID del producto es inválido');
+                return;
+            }
+        });
+
+        const pedidoData = {
+            ClienteID: this.userId,
+            MetodoPago: 'Ethereum',
+            Total: this.precioTotal,
+            PrecioEuro: this.precioTotal,
+            PrecioEtherium: this.ethPipe.transform(this.precioTotal),
+            HashTransaccion: this.txHash,
+            WalletCliente: this.clientWallet,
+            FechaPedido: new Date().toISOString(),
+            Productos: this.productosEnCesta.map(producto => ({
+                ProductoID: producto.productoID,
+                Cantidad: producto.cantidad,
+                PrecioUnitario: producto.precio
+            }))
+        };
+
+        console.log('Datos del pedido:', JSON.stringify(pedidoData));
+
+        const headers = { 'Content-Type': 'application/json' };
+        const request$ = this.http.post(`${this.backendUrl}Pedido/CrearPedido`, pedidoData, { headers });
+
+        return await lastValueFrom(request$);
+    } catch (error: any) {
+        console.error('Error al realizar la solicitud HTTP:', error);
+
+        if (error.error && error.error.errors) {
+            console.error('Detalles de validación:', error.error.errors);
+        }
+
+        throw error;
+    }
+}
   
   private async getAccount(): Promise<string> {
     if (typeof window.ethereum == 'undefined') {
