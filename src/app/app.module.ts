@@ -16,7 +16,6 @@ import { DetallesproductoComponent } from './detallesproducto/detallesproducto.c
 import { ConfirmacionCompraComponent } from './confirmacion-compra/confirmacion-compra.component';
 import { EthPipe } from './eth.pipe';
 import { FilterPipe } from './filter.pipe';
-import { UsuarioComponent } from './usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +29,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
     DetallesproductoComponent,
     ConfirmacionCompraComponent,
     EthPipe,
-    FilterPipe,
-    UsuarioComponent
+    FilterPipe
   ],
   imports: [
     BrowserModule,
