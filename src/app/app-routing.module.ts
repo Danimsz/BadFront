@@ -7,6 +7,9 @@ import { AboutUSComponent } from './about-us/about-us.component';
 import { CestaComponent } from './cesta/cesta.component';
 import { ConfirmacionCompraComponent } from './confirmacion-compra/confirmacion-compra.component';
 import { DetallesproductoComponent } from './detallesproducto/detallesproducto.component';
+import { AdministradorComponent } from './administrador/administrador.component';
+import { AdministradorProductosComponent } from './administrador-productos/administrador-productos.component';
+import { AdministradorUsuariosComponent } from './administrador-usuarios/administrador-usuarios.component';
 
 
 
@@ -18,6 +21,9 @@ const routes: Routes = [
    {path: 'cesta', component: CestaComponent},
    {path: 'confirmacion-compra', component: ConfirmacionCompraComponent},
    {path: 'detalles/:id', component: DetallesproductoComponent},
+   {path: 'administrador', component: AdministradorComponent},
+   {path: 'administrador-productos', component: AdministradorProductosComponent},
+   {path: 'administrador-usuarios', component: AdministradorUsuariosComponent},
    {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];
 

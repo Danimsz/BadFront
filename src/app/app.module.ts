@@ -16,6 +16,9 @@ import { DetallesproductoComponent } from './detallesproducto/detallesproducto.c
 import { ConfirmacionCompraComponent } from './confirmacion-compra/confirmacion-compra.component';
 import { EthPipe } from './eth.pipe';
 import { FilterPipe } from './filter.pipe';
+import { AdministradorComponent } from './administrador/administrador.component';
+import { AdministradorUsuariosComponent } from './administrador-usuarios/administrador-usuarios.component';
+import { AdministradorProductosComponent } from './administrador-productos/administrador-productos.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { FilterPipe } from './filter.pipe';
     DetallesproductoComponent,
     ConfirmacionCompraComponent,
     EthPipe,
-    FilterPipe
+    FilterPipe,
+    AdministradorComponent,
+    AdministradorUsuariosComponent,
+    AdministradorProductosComponent
   ],
   imports: [
     BrowserModule,
