@@ -1,0 +1,31 @@
+body {
+    background-color: #9a0606;
+    margin: 0;  
+    font-family: Arial, sans-serif; 
+  }
+
+imagen {
+    float: left;
+    width: 200px;
+    height: auto; 
+    margin-right: 20px; 
+  }
+  
+
+  .contenedor-derecha {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+  }
+  
+
+  .centrado {
+    width: 500px;
+    height: 70px;
+    background-color: black;
+    color: white; 
+    border: 4px solid rgb(255, 255, 255); 
+    border-radius: 10px; 
+    margin-bottom: 30px; 
+   
+  }
