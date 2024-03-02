@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { AuthService } from './auth.service';
+import { DetallesProducto } from './producto.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class CestaService {
     });
   }
 
-verProductosCesta(): Observable<any[]> {
+  verProductosCesta(): Observable<any[]> {
     if (this.userId !== null) {
       return this.http.get<any[]>(`${this.apiUrl}CestaProductos/${this.userId}/productos`);
     } else {
@@ -31,9 +32,9 @@ verProductosCesta(): Observable<any[]> {
     return this.http.post<string>(`${this.apiUrl}CestaProductos/${this.userId}/agregar`, body);
   }
 
-quitarProductoCesta(productoId: number): Observable<any> {
-  return this.http.delete(`${this.apiUrl}CestaProductos/${this.userId}/quitar/${productoId}`);
-}
+  quitarProductoCesta(productoId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}CestaProductos/${this.userId}/quitar/${productoId}`);
+  }
 
  // actualizarProductoCesta(productoId: number, cantidad: number): Observable<any> {
   //  const body = { ProductoID: productoId, Cantidad: cantidad };
