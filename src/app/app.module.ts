@@ -19,6 +19,7 @@ import { FilterPipe } from './filter.pipe';
 import { AdministradorComponent } from './administrador/administrador.component';
 import { AdministradorUsuariosComponent } from './administrador-usuarios/administrador-usuarios.component';
 import { AdministradorProductosComponent } from './administrador-productos/administrador-productos.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AdministradorProductosComponent } from './administrador-productos/admin
     FilterPipe,
     AdministradorComponent,
     AdministradorUsuariosComponent,
-    AdministradorProductosComponent
+    AdministradorProductosComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,

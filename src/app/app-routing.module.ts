@@ -10,6 +10,7 @@ import { DetallesproductoComponent } from './detallesproducto/detallesproducto.c
 import { AdministradorComponent } from './administrador/administrador.component';
 import { AdministradorProductosComponent } from './administrador-productos/administrador-productos.component';
 import { AdministradorUsuariosComponent } from './administrador-usuarios/administrador-usuarios.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
    {path: 'administrador', component: AdministradorComponent},
    {path: 'administrador-productos', component: AdministradorProductosComponent},
    {path: 'administrador-usuarios', component: AdministradorUsuariosComponent},
+   {path: 'usuario', component: UsuarioComponent},
    {path: '', redirectTo: '/inicio', pathMatch: 'full'}
 ];
 
