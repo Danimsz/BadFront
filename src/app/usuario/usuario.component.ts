@@ -24,6 +24,7 @@ export class UsuarioComponent {
     });
     if (this.userId !== null) {
     this.datosUsuario(this.userId);
+    this.datosPedidosUsuario(this.userId);
     } else {
       console.log('El usuario no ha iniciado sesion')
       this.router.navigate(['/login']);
@@ -51,5 +52,9 @@ export class UsuarioComponent {
       }
     );
   }
+
+  /*editarUsuario(): void {
+    const 
+  }*/
 
 }

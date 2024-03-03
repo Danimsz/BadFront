@@ -23,6 +23,8 @@ import { Pedido } from './usuario.model';
       );
     }
 
-
+    editarUsuario(userId: number, editarUsuarioDto: any): Observable<Usuario> {
+      return this.http.put<Usuario>(`${this.apiUrl}/usuarios/EditarUsuario/${userId}`, editarUsuarioDto);
+    }
     
   }
