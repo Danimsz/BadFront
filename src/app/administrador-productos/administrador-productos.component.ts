@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
 })
 export class AdministradorProductosComponent implements OnInit {
 
-  isAdmin: boolean = false;
+isAdmin: boolean = false;
 
   constructor(private authService: AuthService) { }
 

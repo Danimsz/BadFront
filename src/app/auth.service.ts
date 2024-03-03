@@ -1,5 +1,6 @@
+// auth.service.ts
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -14,6 +15,9 @@ export class AuthService {
 
   constructor(private router: Router, private http: HttpClient) {
     this.verificarDatosLocalStorage();
+    this.isAuthenticatedUser().subscribe(authenticated => {
+      this.isAuthenticated = authenticated;
+    });
   }
 
   get userRol(): Observable<string | null> {
@@ -29,7 +33,6 @@ export class AuthService {
     this.userIdSubject.next(userId);
     this.cestaIdSubject.next(cestaId);
 
-    // Para guardar los datos en localStorage
     localStorage.setItem('idUsuario', userId.toString());
     localStorage.setItem('idCesta', cestaId.toString());
 
@@ -51,14 +54,12 @@ export class AuthService {
     this.userIdSubject.next(null);
     this.cestaIdSubject.next(null);
 
-    //Eliminamos los datos del localStorage al cerrar 
     localStorage.removeItem('idUsuario');
     localStorage.removeItem('idCesta');
     this.router.navigate(['/inicio']);
   }
 
   verificarDatosLocalStorage(){
-    //Para recuperar los datos del localStorage al iniciar el servicio
     const datosUserId = localStorage.getItem('idUsuario');
     const datosCestaId = localStorage.getItem('idCesta');
 
@@ -67,9 +68,9 @@ export class AuthService {
     }
   }
 
-  isAuthenticatedUser(): boolean {
+  isAuthenticatedUser(): Observable<boolean> {
     this.verificarDatosLocalStorage();
-    return this.isAuthenticated;
+    return of(this.isAuthenticated);
   }
 
   getUserId(): Observable<number | null> {

@@ -15,5 +15,9 @@ import { Usuario } from './usuario.model';
     obtenerDatosUsuario(userId: number): Observable<Usuario> {
       return this.http.get<Usuario>(`${this.apiUrl}/VerUsuario/${userId}`);
     }
+
+    obtenerTodosUsuarios(): Observable<Usuario[]> {
+      return this.http.get<Usuario[]>(`${this.apiUrl}/VerUsuarios`);
+    }
     
   }

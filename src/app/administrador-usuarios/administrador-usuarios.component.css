@@ -1,0 +1,32 @@
+/* administrador-usuarios.component.css */
+
+.table-container {
+    margin: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th {
+    background-color: #9a0606;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ffc0cb; /* Rojo claro */
+  }
+  
+  td {
+    padding: 10px;
+    border: 2px solid #737373; /* Bordes más gruesos */
+  }
+  
+  tr:hover {
+    background-color: #ffcccc; /* Rojo claro más claro al pasar el ratón */
+  }
+  
