@@ -1,26 +1,13 @@
-<body>
+<div *ngIf="usuario">
+  <h2>Nombre: {{ usuario.userName }}</h2>
+  <p>Email: {{ usuario.email }}</p>
+  <p>Rol: {{ usuario.rol }}</p>
+  <p>Direccion: {{ usuario.address }}</p>
+</div>
 
-    <div class="contenedor">
-      <img src="tu_imagen.jpg" alt="Imagen" class="imagen">
-      
-      <div class="contenedor-derecha">
-        
-        <div class="centrado">
-         Nombre Usuario
-        </div>
-    
-        <div class="centrado">
-          Correo Usuario:
-        </div>  
-
-        <div class="centrado">
-          Calle:
-        </div>
-        <div class="centrado">
-           Historial de Pedidos
-          </div>
-
-      </div>
-    </div>
-    
-    </body>
+<h2>Pedidos</h2>
+<div *ngFor="let pedido of pedidos">
+  <h3>Pedido {{ pedido.id }}</h3>
+  <p>Fecha: {{ pedido.fecha }}</p>
+  <p>Total: {{ pedido.total }}</p>
+</div>

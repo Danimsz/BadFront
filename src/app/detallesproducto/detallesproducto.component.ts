@@ -42,37 +42,13 @@ export class DetallesproductoComponent implements OnInit {
         console.error('Error al obtener detalles del producto', error);
       }
     );
-}
-
-  /*obtenerDetallesProducto(id: number): void {
-    this.productoService.obtenerDetallesProducto(id).then(producto => {
-      this.productoDetalle = producto;
-    });
-  }*/
-
-  /*agregarAlCarrito(productoId: number, cantidad: number): void {
-      this.cestaService.agregarProductoCesta(productoId, cantidad)
-        .subscribe(
-          (mensaje: string) => {
-            console.log('Mensaje del servidor;', mensaje);
-            this.mostrarMensaje = true; 
-          setTimeout(() => {
-            this.mostrarMensaje = false; 
-          }, 3000); //para que dure 3 segundos
-          },
-          (error) => {
-            console.error('Error al agregar producto a la cesta', error);
-          }
-        );
-  }*/
+  }
 
   agregarAlCarrito(): void {
     const productoId = this.productoDetalle.productoID;
     const cantidadEspecifica = this.cantidadProducto;
   
-    // Verifica si la cantidadEspecifica es válida antes de llamar al servicio
     if (cantidadEspecifica > 0 && cantidadEspecifica <= this.productoDetalle.cantidad) {
-      // Llama al servicio para agregar el producto al carrito
       this.cestaService.agregarProductoCesta(productoId, cantidadEspecifica)
         .subscribe(
           (mensaje: string) => {
@@ -80,15 +56,14 @@ export class DetallesproductoComponent implements OnInit {
             this.mostrarMensaje = true;
             setTimeout(() => {
               this.mostrarMensaje = false;
-            }, 3000); // para que dure 3 segundos
+            }, 3000);
           },
           (error) => {
             console.error('Error al agregar producto a la cesta', error);
           }
         );
     } else {
-      console.error('Cantidad no válida');
-      // Puedes mostrar un mensaje al usuario o tomar otra acción según sea necesario.
+      console.error('Cantidad no valida');
     }
   }
   
