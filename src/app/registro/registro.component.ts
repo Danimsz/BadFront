@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';  // Asegúrate de importar el servicio AuthService
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-registro',
@@ -19,7 +19,6 @@ export class RegistroComponent {
   loginError: string = '';
   registerError: string = '';
 
-  // Inyecta el servicio AuthService en el constructor
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
 
   toggleForm() {
@@ -44,6 +43,9 @@ export class RegistroComponent {
 
           // Asigna el mensaje de bienvenida
           this.welcomeMessage = `Te gustan los patos? y las zapatillas? Bienvenid@ ${username}! este es tu sitio y es peligroso.`;
+
+          //Accedemos al rol del usuario.
+          this.authService.userRol = response.rol;
 
           // Reinicia el mensaje de error
           this.loginError = '';
