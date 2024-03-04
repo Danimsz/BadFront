@@ -85,19 +85,15 @@ export class ConfirmacionCompraComponent implements OnInit {
 
           console.log(message);
           await this.limpiarCesta();
-
-      
-          this.router.navigate(['/']); // Redirijjo  a la página de inicio
-         
-          alert('Compra realizada con éxito');
+          await this.router.navigate(['/']); // Redirijjo  a la página de inicio
         } else {
           console.log('Transacción fallida, no se creará el pedido.');
         }
-
+  
       }  catch (error: any) {
         console.error('Error al realizar el pago:', error);
     
-
+  
         if (error.error && error.error.errors) {
           console.error('Detalles de validación:', error.error.errors);
         }
@@ -170,8 +166,9 @@ export class ConfirmacionCompraComponent implements OnInit {
   
     private async limpiarCesta(): Promise<void> {
       try {
-        
+        console.log(this.userId)
         if (this.userId !== null) {
+          
           // Llamar al meetodo limpiarCesta del servicio con esto consigo borrar la cesta
           await this.cestaService.limpiarCesta(this.userId).toPromise();
           console.log('Cesta limpiada exitosamente');
