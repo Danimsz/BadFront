@@ -23,10 +23,15 @@ export class ConfirmacionCompraComponent implements OnInit {
   constructor(private cestaService: CestaService, private authService: AuthService, private http: HttpClient, private ethPipe: EthPipe, private router: Router) {} // Inyecta el servicio Router
   
   ngOnInit(): void {
-    this.obtenerProductosEnCesta();
     this.authService.getUserId().subscribe((id) => {
       this.userId = id;
     });
+    if (this.userId !== null) {
+      this.obtenerProductosEnCesta();
+      } else {
+        console.log('El usuario no ha iniciado sesion')
+        this.router.navigate(['/registro']);
+      }
   }
 
   obtenerProductosEnCesta(): void {
