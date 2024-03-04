@@ -1,12 +1,13 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: salmon; 
+  background-color: #0f0e0e; 
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+
 } 
 .producto-detalle {
   display: flex;
@@ -14,17 +15,18 @@ body {
   border-radius: 12px; 
   padding: 20px; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  border: 5px solid #9a0606; 
+  margin: 6%;
 }
 .imagen-producto {
-  flex: 1;
-  display: flex;
+
   justify-content: center; 
   align-items: center;
   margin-right: 20px; 
-  border-radius: 10px;  
+  border-radius: 10px;
   overflow: hidden; 
   box-shadow: 0 0 0px rgba(207, 81, 81, 0.3);
-  border: 5px solid rgb(141, 5, 5); 
+  border: 5px solid rgb(0, 0, 0); 
 }
 
 .imagen-producto img {
@@ -54,22 +56,23 @@ input[type="number"],
 button {
   margin-top: 10px; 
   padding: 10px; 
-  border: none; 
-  border-radius: 5px; 
+  border-radius: 8px; 
   cursor: pointer; 
+  margin-top: 5%;
 }
 
 button {
-  background-color: #000000; 
+  background-color: #9a0606; 
   color: white;
+
 }
 
 button:hover {
-  background-color: #076404; 
+  background-color: black
 }
 
 
-/************************Responsive *************************************/
+/**Responsive */
 
 @media only screen and (max-width: 480px) {
   .producto-detalle {
@@ -78,7 +81,7 @@ button:hover {
   }
 
   .imagen-producto {
-    margin-right: 0;  
+    margin-right: 0;
     margin-bottom: 20px; 
   }
 
@@ -95,6 +98,4 @@ button:hover {
   .imagen-producto {
     margin-bottom: 10px;
   }
-
-  
 }

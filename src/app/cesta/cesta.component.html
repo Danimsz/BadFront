@@ -2,7 +2,7 @@
 <body class="fondo">
 
   <div class="container">
-    <h1>CESTA DE USUARIO ID {{userId}}</h1>
+    <h1>CARRITO</h1>
   
     <div *ngFor="let producto of productosEnCesta" class="producto">
       <img [src]="backendUrl + producto.imagen.imagenUrl" alt="{{ producto.nombre }}" class="imagen-producto">
