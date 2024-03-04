@@ -85,7 +85,7 @@ export class ConfirmacionCompraComponent implements OnInit {
 
           console.log(message);
           await this.limpiarCesta();
-          await this.router.navigate(['/']); // Redirijjo  a la página de inicio
+          this.router.navigate(['/']); 
         } else {
           console.log('Transacción fallida, no se creará el pedido.');
         }
