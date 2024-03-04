@@ -1,18 +1,14 @@
-
-  <body>
-    
-  <div *ngIf="productoDetalle" class="producto-detalle">
-    <div class="imagen-producto">
-      <img [src]="backendUrl + productoDetalle.imagenUrl" alt="{{productoDetalle.nombre}}">
-    </div>
-    <div class="info-producto">
-      <h2>{{ productoDetalle.nombre }}</h2>
-      <p>Precio: {{ productoDetalle.precio }} €</p>
-      <p>Disponibilidad: {{ productoDetalle.cantidad }} </p>
-      <p>Categoría: {{ productoDetalle.categoria }}</p>
-      <p>Descripción: {{ productoDetalle.descripcion }}</p>
-      <input type="number" min="1" [(ngModel)]="cantidadProducto" />
-      <button (click)="agregarAlCarrito()">Añadir al carrito</button>
-    </div>
+<div *ngIf="productoDetalle" class="producto-detalle">
+  <div class="imagen-producto">
+    <img [src]="backendUrl + productoDetalle.imagenUrl" alt="{{productoDetalle.nombre}}">
   </div>
-</body>
+  <div class="info-producto">
+    <h2>{{ productoDetalle.nombre }}</h2>
+    <p>{{ productoDetalle.precio }}</p>
+    <p>{{ productoDetalle.cantidad }}</p>
+    <p>{{ productoDetalle.categoria }}</p>
+    <p>{{ productoDetalle.descripcion }}</p>
+    <input type="number" min="1" [(ngModel)]="cantidadProducto" />
+    <button (click)="agregarAlCarrito()">Añadir al carrito</button>
+  </div>
+</div>

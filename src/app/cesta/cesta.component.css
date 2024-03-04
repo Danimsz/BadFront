@@ -1,125 +1,119 @@
-
 body {
-  margin: 0;
-  padding: 0;
-}
-
-.fondo{
-  background-color: salmon;
-}
-
-.container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .producto {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  width: 100%;
+    display: flex;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 10px;
 }
 
-.imagen-producto {
-  width: 150px; 
-  height: 150px; 
-  border-radius: 5px;
-  margin-right: 20px;
+.imagenProducto {
+    width: 100px;
+    margin-right: 20px;
 }
 
-.producto-details {
-  flex-grow: 1;
+.infoProducto {
+    flex: 1;
 }
 
-
-.botones {
-  display: flex;
+.precio {
+    font-weight: bold;
+    color: #333;
 }
 
-.accion {
-  background-color: #000000;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; 
+.total {
+    text-align: right;
+    font-size: 18px;
+    margin-top: 20px;
 }
 
-.accion:hover {
-  background-color: #991e1e; 
-}
-
-.boton-pedido {
-  display: block;
-  width: 100%;
-  padding: 10px 0;
-  background-color: black; 
-  color: #fff;
-  text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
+.btnFinalizarCompra {
+    background-color: #000000;
+    color: white;
+    padding: 10px 15px;
     cursor: pointer;
-    transition: background-color 0.3s ease; 
-  }
-
-.boton-pedido:hover {
-  background-color: #126006; 
+    text-align: center;
+    display: block;
+    margin-top: 20px;
 }
 
-/************************Responsive *************************************/
-
-@media only screen and (max-width: 768px) {
-  .container {
-    width: 90%;
-    padding: 15px; 
-  }
-
-  .imagen-producto {
-    width: 80px; 
-    height: 80px;
-    margin-right: 10px; 
-  }
-
-  .producto {
-    margin-bottom: 15px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
+.btnFinalizarCompra:hover {
+    background-color: #95111c;
 }
 
-@media only screen and (max-width: 480px) {
-  .container {
-    width: 100%;
-    padding: 10px; 
-  }
-
-  .imagen-producto {
-    width: 60px; 
-    height: 60px;
-    margin-right: 5px;
-
-  .producto {
-    margin-bottom: 10px; 
-  }
-
-  h1 {
-    font-size: 20px; 
-  }
+.cantidad {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
+.btnCantidad {
+    background-color: #000000;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.btnCantidad:hover {
+    background-color: #95111c;
+}
+
+.cantidadNumero {
+    margin: 0 10px;
+}
+
+.btnEliminar {
+    background-color: #95111c;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    margin-left: 700px;
+}
+
+.btnEliminar:hover {
+    background-color: #700d14;
+}
+
+
+.productocesta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.productoimagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productocantidad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productoprecio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
