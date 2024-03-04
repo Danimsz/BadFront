@@ -18,6 +18,8 @@ export class HeaderComponent implements OnInit {
       
       if (rol !== null) {
         localStorage.setItem('rolUsuario', rol);
+      } else {
+        this.isAdmin = false;
       }
     });
 

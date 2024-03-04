@@ -16,7 +16,7 @@ export class DetallesproductoComponent implements OnInit {
   id: number = 0;
   mostrarMensaje: boolean = false;
   productoDetalle: any;
-  cantidadProducto: number = 0;
+  cantidadProducto: number = 1;
   backendUrl = 'http://localhost:5174/';
 
   ngOnInit() {
