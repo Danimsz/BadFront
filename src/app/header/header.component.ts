@@ -9,9 +9,7 @@ import { AuthService } from '../auth.service';
 export class HeaderComponent implements OnInit {
   isAdmin: boolean = false;
 
-  constructor(private authService: AuthService) { }
-
-  ngOnInit(): void {
+  constructor(private authService: AuthService) { 
     // Obtener el rol del usuario y establecer isAdmin en función de eso
     this.authService.userRol.subscribe((rol) => {
       this.isAdmin = rol === 'Administrador';
@@ -22,11 +20,15 @@ export class HeaderComponent implements OnInit {
         this.isAdmin = false;
       }
     });
+  }
+
+  ngOnInit(): void {
+    
 
     // Verificar el rol del usuario al iniciar el componente
-    const rolUsuario = localStorage.getItem('rolUsuario');
+    /*const rolUsuario = localStorage.getItem('rolUsuario');
     if (rolUsuario !== null) {
       this.isAdmin = rolUsuario === 'Administrador';
-    }
+    }*/
   }
 }

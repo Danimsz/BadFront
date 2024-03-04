@@ -26,7 +26,7 @@ export class ConfirmacionCompraComponent implements OnInit {
     this.authService.getUserId().subscribe((id) => {
       this.userId = id;
     });
-    if (this.userId !== null) {
+    if (this.userId !== null) { 
       this.obtenerProductosEnCesta();
       } else {
         console.log('El usuario no ha iniciado sesion')
