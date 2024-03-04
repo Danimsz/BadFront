@@ -32,3 +32,21 @@
   .azul{
     color:  rgb(21, 0, 252);
   }
+
+ 
+@media (min-width: 768px) {
+  .about-us-item {
+    
+      margin: 1%;
+  }
+}
+
+@media (max-width: 576px) {
+  img {
+      width: 80%;
+  }
+
+  .linea h4 {
+      font-size: 14px;
+  }
+}

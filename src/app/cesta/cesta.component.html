@@ -1,44 +1,22 @@
 
-<!--<div *ngFor="let producto of productosEnCesta" class="productocesta">
-  <div class="productoimagen">
-      <img [src]="backendUrl + producto.imagen.imagenUrl" alt="{{producto.nombre}}">
+<body class="fondo">
 
-      <button (click)="quitarProducto(producto.productoID)">Quitar de la cesta</button>
-  </div> 
-
-  <div *ngFor="let producto of productosEnCesta">
-    <img [src]="producto.imagenUrl" alt="Producto Imagen">
-    <h3>{{ producto.nombre }}</h3>
-    <p>{{ producto.precio }}</p>
-     
+  <div class="container">
+    <h1>CESTA DE USUARIO ID {{userId}}</h1>
+  
+    <div *ngFor="let producto of productosEnCesta" class="producto">
+      <img [src]="backendUrl + producto.imagen.imagenUrl" alt="{{ producto.nombre }}" class="imagen-producto">
+      <div class="producto-details">
+        <p>{{ producto.nombre }}</p>
+        <p>Cantidad: {{ producto.cantidad }}</p>
+      </div>
+      <div class="botones">
+        <button class="accion" (click)="agregarProducto(producto.productoID, 1)">+</button>
+        <button class="accion" (click)="quitarProducto(producto.productoID)">-</button>
+      </div>
+    </div>
+  
+    <button class="boton-pedido" [routerLink]="['/confirmacion-compra']">Realizar Pedido</button>
   </div>
-
-  <div class="productonombre">
-    <h3>{{ producto.nombre }}</h3>
-  </div>
-  <div class="productocantidad">
-      <label for="cantidad">Cantidad:</label>
-      <input type="number" id="cantidad" name="cantidad" min="1" [(ngModel)]="producto.cantidad">
-  </div>
-  <div class="productoprecio">
-      <p>Precio: {{ producto.precio }}</p>
-  </div>
-</div>
-
-<div *ngFor="let producto of productosEnCesta">
-  <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
-  <button (click)="quitarProducto(producto.productoID)">Quitar de la cesta</button>
-</div>-->
-
-<h1>CESTA DE USUARIO ID {{userId}}</h1>
-
-<div *ngFor="let producto of productosEnCesta">
-  <img [src]="backendUrl + producto.imagen.imagenUrl" alt="{{ producto.nombre }}">
-  <p>{{ producto.nombre }} - Cantidad: {{ producto.cantidad }}</p>
-  <button (click)="agregarProducto(producto.productoID, 1)">Añadir</button>
-  <button (click)="quitarProducto(producto.productoID)">Quitar</button>
-</div>
-
-<br>
-
-<button class="boton" [routerLink]="['/confirmacion-compra']">Confirmacion Compra</button>
+  
+  </body>

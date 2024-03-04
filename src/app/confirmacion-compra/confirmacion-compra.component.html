@@ -1,17 +1,27 @@
-<h1>PEDIDO DE USUARIO CON ID {{userId}}</h1>
-<br>
-<p>- PRODUCTOS -</p>
-<div *ngFor="let producto of productosEnCesta">
-    <img [src]="backendUrl + producto.imagen.imagenUrl">
-    <p>{{ producto.nombre }} - cantidad: {{ producto.cantidad }}</p>
-    <p>{{ producto.precio }}€</p>
-</div>
-<hr>
-<p>- TOTAL -</p>
-<p>Euros: {{ precioTotal }} €</p>
-<p>Etherium: {{ precioTotal | eth }} ETH</p>
-<hr>
-<p>- FORMA DE PAGO -</p>
+<body>
 
-<br>
-<button (click)="realizarPago()">Realizar Pago</button>
+    <div class="container">
+      <h1>PEDIDO DE USUARIO CON ID {{userId}}</h1>
+      <br>
+      <p class="section-title">- PRODUCTOS -</p>
+      <div *ngFor="let producto of productosEnCesta" class="producto">
+        <img [src]="backendUrl + producto.imagen.imagenUrl" class="product-image">
+        <div class="product-details">
+          <p>{{ producto.nombre }}</p>
+          <p>Cantidad: {{ producto.cantidad }}</p>
+          <p>{{ producto.precio }}€</p>
+        </div>
+      </div>
+      <hr>
+      <p class="section-title">- TOTAL -</p>
+      <div class="total">
+        <p>Euros: {{ precioTotal }} €</p>
+        <p>Etherium: {{ precioTotal | eth }} ETH</p>
+      </div>
+      <hr>
+      <p class="section-title">- FORMA DE PAGO -</p>
+      <br>
+      <button class="btn-pagar" (click)="realizarPago()">Realizar Pago</button>
+    </div>
+    
+    </body>
