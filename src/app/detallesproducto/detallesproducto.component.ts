@@ -42,7 +42,7 @@ export class DetallesproductoComponent implements OnInit {
         console.error('Error al obtener detalles del producto', error);
       }
     );
-  }
+}
 
   agregarAlCarrito(): void {
     const productoId = this.productoDetalle.productoID;
@@ -63,7 +63,7 @@ export class DetallesproductoComponent implements OnInit {
           }
         );
     } else {
-      console.error('Cantidad no valida');
+      console.error('Cantidad no válida');
     }
   }
   
