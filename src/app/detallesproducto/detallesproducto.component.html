@@ -1,6 +1,4 @@
-
-  <body>
-    
+<body>
   <div *ngIf="productoDetalle" class="producto-detalle">
     <div class="imagen-producto">
       <img [src]="backendUrl + productoDetalle.imagenUrl" alt="{{productoDetalle.nombre}}">
@@ -11,8 +9,8 @@
       <p>Disponibilidad: {{ productoDetalle.cantidad }} </p>
       <p>Categoría: {{ productoDetalle.categoria }}</p>
       <p>Descripción: {{ productoDetalle.descripcion }}</p>
-      <input type="number" min="1" [(ngModel)]="cantidadProducto" />
-      <button (click)="agregarAlCarrito()">Añadir al carrito</button>
+      <input type="number" min="1" [(ngModel)]="cantidadProducto" /> <br>
+      <button (click)="agregarAlCarrito()">Añadir al carrito</button> 
     </div>
   </div>
 </body>

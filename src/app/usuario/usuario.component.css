@@ -1,7 +1,22 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -14,9 +29,8 @@ p {
   margin: 5px 0;
 }
 
-
-button.editar {
-  background-color: #ff3e00; 
+button {
+  background-color: #851111;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -26,10 +40,9 @@ button.editar {
   margin-bottom: 20px;
 }
 
-button.editar:hover {
-  background-color: #c72e00; 
+button:hover {
+  background-color: #000000;
 }
-
 
 hr {
   border: none;
@@ -37,41 +50,33 @@ hr {
   margin: 20px 0;
 }
 
-
-.pedido {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.pedido p {
-  margin: 5px 0;
-}
 .usuario {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .usuario p {
-  margin: 5px 0;
-}
-
-.usuario button.editar {
-  background-color: #000000; 
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
   font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 20px;
+  color: #666;
 }
 
-.usuario button.editar:hover {
-  background-color: #8b1414; 
+
+/*******************************responsive****************************************/
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }
