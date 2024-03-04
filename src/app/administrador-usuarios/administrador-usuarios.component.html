@@ -1,3 +1,4 @@
+<div *ngIf="isAdmin">
 <h2>Listado de Usuarios</h2>
 <div class="table-container">
   <table class="table">
@@ -7,7 +8,7 @@
         <th>Nombre de Usuario</th>
         <th>Rol</th>
         <th>Email</th>
-        <th>Acciones</th> <!-- Nueva columna para botones de acciones -->
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -23,4 +24,5 @@
       </tr>
     </tbody>
   </table>
+</div>
 </div>
