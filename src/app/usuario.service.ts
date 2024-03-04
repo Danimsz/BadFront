@@ -9,6 +9,7 @@ import { Pedido } from './usuario.model';
 })
 
   export class UsuarioService {
+    
     private apiUrl = 'http://localhost:5174'; 
   
     constructor(private http: HttpClient) {}
@@ -28,7 +29,16 @@ import { Pedido } from './usuario.model';
     }
 
     obtenerTodosUsuarios(): Observable<Usuario[]> {
-      return this.http.get<Usuario[]>(`${this.apiUrl}/VerUsuarios`);
+      return this.http.get<Usuario[]>(`${this.apiUrl}/Usuario/VerUsuarios`);
+    }
+
+    editarUsuarioAdmin(userId: number, editarUsuarioDto: any): Observable<any> {
+      return this.http.put<any>(`${this.apiUrl}/Usuario/EditarUsuarioAdmin/${userId}`, editarUsuarioDto);
+    }
+
+    eliminarUsuario(userId: number): Observable<any> {
+      return this.http.delete<any>(`${this.apiUrl}/Usuario/BorrarUsuario/${userId}`);
     }
     
   }
+  

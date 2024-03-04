@@ -1,24 +1,28 @@
-
 <h2>Listado de Usuarios</h2>
 <div class="table-container">
-    <table class="table">
+  <table class="table">
     <thead>
-        <tr>
+      <tr>
         <th>ID</th>
         <th>Nombre de Usuario</th>
         <th>Dirección</th>
         <th>Rol</th>
         <th>Email</th>
-        </tr>
+        <th>Acciones</th> <!-- Nueva columna para botones de acciones -->
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let usuario of usuarios">
+      <tr *ngFor="let usuario of usuarios">
         <td>{{ usuario.clienteID }}</td>
         <td>{{ usuario.userName }}</td>
         <td>{{ usuario.address }}</td>
         <td>{{ usuario.rol }}</td>
         <td>{{ usuario.email }}</td>
-        </tr>
+        <td>
+          <button class="editar" (click)="editarUsuario(usuario)">Editar</button>
+          <button (click)="eliminarUsuario(usuario)">Eliminar</button>
+        </td>
+      </tr>
     </tbody>
-    </table>
+  </table>
 </div>
