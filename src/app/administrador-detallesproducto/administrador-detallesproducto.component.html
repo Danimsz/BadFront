@@ -1,0 +1,52 @@
+<div *ngIf="productoDetalle" class="producto-detalle">
+  <div class="imagen-producto">
+    <img [src]="backendUrl + productoDetalle.imagenUrl" alt="{{productoDetalle.nombre}}">
+  </div>
+  <div class="info-producto">
+    <h2>Id: </h2>
+    <p *ngIf="!editMode && productoDetalle.productoID">{{ productoDetalle.productoID }}</p>
+    <input *ngIf="editMode && productoDetalle.productoID" [(ngModel)]="productoDetalle.productoID">
+
+    <h2>Cantidad: </h2>
+    <p *ngIf="!editMode">{{ productoDetalle.cantidad }}</p>
+    <input *ngIf="editMode" [(ngModel)]="productoDetalle.cantidad">
+
+    <h2>Nombre: </h2>
+    <p *ngIf="!editMode">{{ productoDetalle.nombre }}</p>
+    <input *ngIf="editMode" [(ngModel)]="productoDetalle.nombre">
+    
+    <h2>Descripcion: </h2>
+    <p *ngIf="!editMode">{{ productoDetalle.descripcion}}</p>
+    <input *ngIf="editMode" [(ngModel)]="productoDetalle.descripcion">
+
+    <h2>Precio: </h2>
+    <p *ngIf="!editMode">{{ productoDetalle.precio }}€</p>
+    <input *ngIf="editMode" [(ngModel)]="productoDetalle.precio">
+
+    <h2 *ngIf="editMode">ImagenID: </h2>
+    <input *ngIf="editMode" [(ngModel)]="productoDetalle.imagenID">
+
+    <h2 *ngIf="editMode">ImagenNombre: </h2>
+    <input *ngIf="editMode" [(ngModel)]="productoDetalle.imagenNombre">  
+
+    <h2 *ngIf="editMode">ImagenURL: </h2>
+    <input *ngIf="editMode" [(ngModel)]="productoDetalle.imagenUrl">      
+
+    <h2>Categoria: </h2>
+    <p *ngIf="!editMode">{{ productoDetalle.categoria }}</p>
+    <input *ngIf="editMode" [(ngModel)]="productoDetalle.categoria">
+
+
+    <button (click)="toggleEditMode()">{{editMode ? 'Cancelar' : 'Editar'}}</button>
+    <button *ngIf="editMode" (click)="guardarCambios()">Guardar</button>
+    <button *ngIf="!confirmarEliminacion" (click)="eliminarProducto()" class="eliminar">Eliminar</button>
+    <div *ngIf="confirmarEliminacion" class="confirmar-eliminacion">
+      <p>¿Estás seguro? El producto se borrará permanentemente</p>
+      <button (click)="confirmarEliminarProducto()" class="si">Sí</button>
+      <button (click)="confirmarEliminacion = false" class="no">No</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="mensaje" [ngClass]="{'exito': !editMode, 'error': editMode}">
+  {{ mensaje }}
+</div>

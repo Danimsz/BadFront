@@ -9,6 +9,7 @@ import { ConfirmacionCompraComponent } from './confirmacion-compra/confirmacion-
 import { DetallesproductoComponent } from './detallesproducto/detallesproducto.component';
 import { AdministradorComponent } from './administrador/administrador.component';
 import { AdministradorProductosComponent } from './administrador-productos/administrador-productos.component';
+import { AdministradorDetallesproductoComponent } from './administrador-detallesproducto/administrador-detallesproducto.component';
 import { AdministradorUsuariosComponent } from './administrador-usuarios/administrador-usuarios.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 
@@ -24,6 +25,8 @@ const routes: Routes = [
    {path: 'detalles/:id', component: DetallesproductoComponent},
    {path: 'administrador', component: AdministradorComponent},
    {path: 'administrador-productos', component: AdministradorProductosComponent},
+   {path: 'administrador-detallesproducto/:id', component: AdministradorDetallesproductoComponent },
+   {path: 'administrador-detallesproducto', component: AdministradorDetallesproductoComponent },
    {path: 'administrador-usuarios', component: AdministradorUsuariosComponent},
    {path: 'usuario', component: UsuarioComponent},
    {path: '', redirectTo: '/inicio', pathMatch: 'full'}

@@ -1,4 +1,4 @@
-import { Producto, DetallesProducto } from "./producto.model";
+
 
 export interface Usuario{
     clienteID: number;
@@ -6,6 +6,7 @@ export interface Usuario{
     address: string;
     rol: string;
     email: string;
+    editando?: boolean;
 }
 
 export interface Pedido {

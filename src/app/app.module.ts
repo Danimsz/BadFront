@@ -20,6 +20,7 @@ import { AdministradorComponent } from './administrador/administrador.component'
 import { AdministradorUsuariosComponent } from './administrador-usuarios/administrador-usuarios.component';
 import { AdministradorProductosComponent } from './administrador-productos/administrador-productos.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { AdministradorDetallesproductoComponent } from './administrador-detallesproducto/administrador-detallesproducto.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UsuarioComponent } from './usuario/usuario.component';
     AdministradorComponent,
     AdministradorUsuariosComponent,
     AdministradorProductosComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    AdministradorDetallesproductoComponent
   ],
   imports: [
     BrowserModule,
