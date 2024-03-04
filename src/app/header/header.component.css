@@ -1,7 +1,6 @@
-/* app.component.css */
-
 @import "~bootstrap/dist/css/bootstrap.css";
 @import '~@fortawesome/fontawesome-free/css/all.css';
+
 .nav-link {
     color: #ffffff;
     font-weight: bold;
