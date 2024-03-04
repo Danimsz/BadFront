@@ -31,6 +31,7 @@ export class AuthService {
     this.isAuthenticated = true;
     this.userIdSubject.next(userId);
     this.cestaIdSubject.next(cestaId);
+    
 
     localStorage.setItem('idUsuario', userId.toString());
     localStorage.setItem('idCesta', cestaId.toString());
@@ -49,6 +50,8 @@ export class AuthService {
   }
 
   logout(): void {
+    //El rol que sea null
+    this._userRol.next(null);
     this.isAuthenticated = false;
     this.userIdSubject.next(null);
     this.cestaIdSubject.next(null);
