@@ -1,4 +1,4 @@
-body {
+*body {
     background-color: #9a0606;
     margin: 0;  
     font-family: Arial, sans-serif; 
@@ -27,5 +27,6 @@ imagen {
     border: 4px solid rgb(255, 255, 255); 
     border-radius: 10px; 
     margin-bottom: 30px; 
-   
+
   }
+

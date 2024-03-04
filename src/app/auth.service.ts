@@ -35,7 +35,7 @@ export class AuthService {
     localStorage.setItem('idUsuario', userId.toString());
     localStorage.setItem('idCesta', cestaId.toString());
 
-    this.http.get<any>(`http://localhost:5174/VerUsuario/${userId}`)
+    this.http.get<any>(`http://localhost:5174/Usuario/VerUsuario/${userId}`)
       .subscribe(
         (response) => {
           if (response) {
