@@ -15,6 +15,7 @@ export class UsuarioComponent {
   usuario: any;
   pedidos: any;
   private userId: number | null = null;
+  isUser: boolean = false;
 
   constructor(private usuarioService: UsuarioService, private authService: AuthService, private router: Router) {}
 
@@ -53,8 +54,25 @@ export class UsuarioComponent {
     );
   }
 
-  /*editarUsuario(): void {
-    const 
-  }*/
+  editarUsuario(userId: Usuario): void {
+    const nuevoNombre = prompt('Introduce el nuevo nombre:');
+    const nuevoEmail = prompt('Introduce el nuevo email');
+    const nuevaDireccion = prompt('Introduce la nueva direccion:');
+    const NuevaContraseña = prompt('Introduce la nueva contraseña');
+
+    if(nuevoNombre !== null && nuevoEmail !== null && nuevaDireccion !== null && NuevaContraseña!== null){
+      const editarUsuarioDto = {userName: nuevoNombre, email: nuevoEmail, address: nuevaDireccion, password: NuevaContraseña};
+
+      this.usuarioService.editarUsuario(userId.clienteID, editarUsuarioDto).subscribe(
+        () => {
+          console.log('Se han modificado los datos correctamente');
+          this.router.navigate(['/usuario']);
+        },
+        (error) => {
+          console.error('Error al modificar los datos', error);
+        }
+      );
+    }
+  }
 
 }
