@@ -1,3 +1,4 @@
+<div *ngIf="isAdmin">
 <div *ngIf="productoDetalle" class="producto-detalle">
   <div class="imagen-producto">
     <img [src]="backendUrl + productoDetalle.imagenUrl" alt="{{productoDetalle.nombre}}">
@@ -49,4 +50,5 @@
 </div>
 <div *ngIf="mensaje" [ngClass]="{'exito': !editMode, 'error': editMode}">
   {{ mensaje }}
+</div>
 </div>

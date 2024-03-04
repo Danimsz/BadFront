@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 import { ProductoService } from '../producto.service';
 import { DetallesProducto } from '../producto.model';
+import { AuthService } from '../auth.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./administrador-detallesproducto.component.css']
 })
 export class AdministradorDetallesproductoComponent implements OnInit {
+  isAdmin: boolean = false;
   unsubs: Subscription | null = null;
   id: number = 0;
   productoDetalle: any;
@@ -19,19 +21,25 @@ export class AdministradorDetallesproductoComponent implements OnInit {
   confirmarEliminacion = false;
   mensaje: string = '';
 
-  constructor(private route: ActivatedRoute, private productoService: ProductoService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private productoService: ProductoService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     this.unsubs = this.route.params.subscribe((data) => {
       this.id = data['id'];
       if (this.id) {
-        this.obtenerDetallesProducto(this.id);
+        this.authService.userRol.subscribe((rol) => {
+          this.isAdmin = rol === 'Administrador';
+          if (this.isAdmin) {
+            this.obtenerDetallesProducto(this.id);
+          }
+        });
       } else {
         this.productoDetalle = {};
         this.editMode = true;
       }
     });
   }
+  
   
 
   obtenerDetallesProducto(id: number): void {

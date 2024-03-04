@@ -8,20 +8,49 @@
   align-items: center;
 }
 
+.botonadd {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  padding: 6px 14px; 
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-right: 10px; 
+}
+
+.search-container {
+  width: 80%;
+  margin: 0 auto;
+  padding-left: 1rem;
+}
+
+.search-container input {
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  background-color: #ffffff; 
+  color: #000000; 
+  font-weight: bold;
+  padding-left: 30px;
+}
+
 .catalogo-container {
     width: 100%;
     padding: 0 20px;
   }
   
-  .tarjeta {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-  }
+.tarjeta {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
   
-  .tarjeta img {
-    width: 50px;
-    height: 50px;
-  }
+.tarjeta img {
+  width: 50px;
+  height: 50px;
+}
   
