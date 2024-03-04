@@ -78,6 +78,7 @@ export class ConfirmacionCompraComponent implements OnInit {
           : 'Transacción realizada con éxito, pero fallo al crear el pedido :(';
 
         console.log(message);
+        await this.limpiarCesta();
       } else {
         console.log('Transacción fallida, no se creará el pedido.');
       }
@@ -154,6 +155,21 @@ export class ConfirmacionCompraComponent implements OnInit {
     });
 
     return account;
+  }
+
+  private async limpiarCesta(): Promise<void> {
+    try {
+      
+      if (this.userId !== null) {
+        // Llamar al meetodo limpiarCesta del servicio con esto consigo borrar la cesta
+        await this.cestaService.limpiarCesta(this.userId).toPromise();
+        console.log('Cesta limpiada exitosamente');
+      } else {
+        console.error('No se puede limpiar la cesta: Usuario no identificado');
+      }
+    } catch (error: any) {
+      console.error('Error al limpiar la cesta:', error);
+    }
   }
 
   private async makeTransaction(transaction: Transaction): Promise<string> {

@@ -1,0 +1,57 @@
+
+
+
+  .admin-buttons-container {
+    position: fixed;
+    top: 11%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/pato.gif');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+@keyframes neon {
+  0% {
+    text-shadow: 0 0 10px #ff0000, 0 0 30px #ff0000, 0 0 50px #ff0000, 0 0 70px #ff0000, 0 0 90px #ff0000, 0 0 110px #ff0000, 0 0 130px #ff0000, 0 0 150px #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 30px #ff0000, 0 0 50px #ff0000, 0 0 70px #ff0000, 0 0 90px #ff0000, 0 0 110px #ff0000, 0 0 130px #ff0000, 0 0 150px #ff0000;
+  }
+  100% {
+    text-shadow: 0 0 20px #ff0000, 0 0 40px #ff8000, 0 0 60px #ffff00, 0 0 80px #00ff00, 0 0 100px #00ffff, 0 0 120px #0000ff, 0 0 140px #8000ff, 0 0 160px #ff00ff;
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff8000, 0 0 60px #ffff00, 0 0 80px #00ff00, 0 0 100px #00ffff, 0 0 120px #0000ff, 0 0 140px #8000ff, 0 0 160px #ff00ff;
+  }
+}
+
+.admin-button {
+  width: 300px;
+  height: 100px;
+  background: linear-gradient(to right, black, red);
+  color: white;
+  padding: 20px 35px;
+  border: none;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin: 400px;
+}
+
+.admin-button:hover {
+  animation: neon 1.5s linear infinite alternate;
+}
+
+
+
+
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .admin-button {
+    width: 200px; /* Cambié el ancho del botón para pantallas más pequeñas */
+    margin: 10px; /* Cambié el margen del botón para pantallas más pequeñas */
+  }
+}
+

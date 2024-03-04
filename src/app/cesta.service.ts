@@ -32,6 +32,10 @@ export class CestaService {
   quitarProductoCesta(productoId: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}CestaProductos/${this.userId}/quitar/${productoId}`);
   }
+
+  limpiarCesta(userId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}CestaProductos/${userId}/limpiar`);
+  }
 }
 
 

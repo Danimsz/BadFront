@@ -1,5 +1,8 @@
-<div *ngIf="isAdmin">
-<p>administrador works!</p>
-<button [routerLink]="['/administrador-usuarios']">ADMINISTRADOR DE USUARIOS</button>
-<button [routerLink]="['/administrador-productos']">ADMINISTRAR CATÁLOGO</button>
+<body>
+<div class="fondo">
+    <div  *ngIf="isAdmin" class="admin-buttons-container">
+        <button class="admin-button" [routerLink]="['/administrador-usuarios']">ADMINISTRADOR DE USUARIOS</button>
+        <button class="admin-button" [routerLink]="['/administrador-productos']">ADMINISTRAR CATÁLOGO</button>
+    </div>
 </div>
+</body>
