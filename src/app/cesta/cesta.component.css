@@ -1,20 +1,21 @@
-
 body {
   margin: 0;
   padding: 0;
+  background-color: rgb(91, 2, 2); /* Cambia el color de fondo según tu preferencia */
+  height: 100%; /* Ajusta la altura al 100% de la ventana */
+  justify-content: center;
+  align-items: center;
 }
 
-.fondo{
-  background-color: salmon;
-}
+
 
 .container {
   max-width: 600px;
-  margin: 50px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
 }
 
 h1 {
@@ -30,9 +31,9 @@ h1 {
 }
 
 .imagen-producto {
-  width: 150px; 
-  height: 150px; 
-  border-radius: 5px;
+  width: 250px; 
+  height: 220px; 
+  border-radius: 15px;
   margin-right: 20px;
 }
 
@@ -79,7 +80,7 @@ h1 {
   background-color: #126006; 
 }
 
-/************************Responsive *************************************/
+/**Responsive */
 
 @media only screen and (max-width: 768px) {
   .container {
