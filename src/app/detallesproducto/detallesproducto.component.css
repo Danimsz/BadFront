@@ -69,21 +69,22 @@ button:hover {
 }
 
 
-@media only screen and (max-width: 768px) {
-  .producto-detalle {
-    padding: 15px;
-  }
-
-  .imagen-producto {
-    margin-bottom: 15px;
-  }
-}
+/************************Responsive *************************************/
 
 @media only screen and (max-width: 480px) {
   .producto-detalle {
     padding: 10px;
+    flex-direction: column;
   }
 
+  .imagen-producto {
+    margin-right: 0;  
+    margin-bottom: 20px; 
+  }
+
+  .info-producto {
+    order: -1;
+  }
 }
 
 @media only screen and (max-width: 280px) {
@@ -93,4 +94,5 @@ button:hover {
 
   .imagen-producto {
     margin-bottom: 10px;
-  }}
+  }
+}

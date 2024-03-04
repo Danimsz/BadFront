@@ -1,4 +1,3 @@
-<!-- app.component.html -->
 <nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -18,27 +17,29 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/aboutus']">SOBRE NOSOTROS</a>
         </li>
-        <li class="nav-item" *ngIf="isAdmin">
-          <a class="nav-link" [routerLink]="['/administrador']">ADMINISTRADOR</a>
-        </li>
       </ul>
-      <ul class="navbar-nav ms-auto"> <!-- Agregamos una nueva lista para alinear a la derecha -->
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="nav-link " [routerLink]="['/registro']">
-            <i class="fas fa-user fa-lg"></i> <!-- Ícono de carrito -->
+            <i class="fas fa-user fa-lg"></i>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/cesta']">
-            <i class="fas fa-shopping-cart fa-lg"></i> <!-- Ícono de inicio de sesión -->
+            <i class="fas fa-shopping-cart fa-lg"></i>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/usuario']">
-            Usuario
+            <i class="fas fa-cog fa-lg"></i>
           </a>
         </li>
       </ul>
+    </div>
+    <div class="navbar-nav ms-auto">
+      <li class="nav-item" *ngIf="isAdmin">
+        <a class="nav-link" [routerLink]="['/administrador']">ADMINISTRADOR</a>
+      </li>
     </div>
   </div>
 </nav>
