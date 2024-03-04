@@ -25,7 +25,7 @@ import { Pedido } from './usuario.model';
     }
 
     editarUsuario(userId: number, editarUsuarioDto: any): Observable<Usuario> {
-      return this.http.put<Usuario>(`${this.apiUrl}/usuarios/EditarUsuario/${userId}`, editarUsuarioDto);
+      return this.http.put<any>(`${this.apiUrl}/Usuario/EditarUsuario/${userId}`, editarUsuarioDto);
     }
 
     obtenerTodosUsuarios(): Observable<Usuario[]> {
