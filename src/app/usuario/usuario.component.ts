@@ -28,7 +28,7 @@ export class UsuarioComponent {
     this.datosPedidosUsuario(this.userId);
     } else {
       console.log('El usuario no ha iniciado sesion')
-      this.router.navigate(['/login']);
+      this.router.navigate(['/registro']);
     }
   }
   
@@ -73,6 +73,10 @@ export class UsuarioComponent {
         }
       );
     }
+  }
+
+  cerrarSesion(): void{
+    this.authService.logout();
   }
 
 }

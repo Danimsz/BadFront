@@ -60,6 +60,7 @@ export class AdministradorUsuariosComponent implements OnInit {
 
   eliminarUsuario(usuario: Usuario) {
     if (confirm('¿Estás seguro de eliminar este usuario?')) {
+      
       this.usuarioService.eliminarUsuario(usuario.clienteID).subscribe(
         () => {
           console.log('Usuario eliminado exitosamente');

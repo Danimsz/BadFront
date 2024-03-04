@@ -7,6 +7,8 @@
 </div>
 <button class="editar" (click)="editarUsuario(usuario)">Modificar Datos</button>
 <hr>
+<button (click)="cerrarSesion()">Cerrar Sesión</button>
+<hr>
 <h2>Listado de Pedidos</h2>
 <div *ngFor="let pedido of pedidos">
   <p>Pedido {{ pedido.id }}</p>
