@@ -7,6 +7,9 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class CestaService {
+  vaciarCesta() {
+    throw new Error('Method not implemented.');
+  }
   private apiUrl = 'http://localhost:5174/';
   private userId: number | null = null;
 

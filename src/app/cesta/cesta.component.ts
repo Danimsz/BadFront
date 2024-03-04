@@ -23,7 +23,9 @@ export class CestaComponent implements OnInit {
       this.userId = id;
     });
   }
-
+  actualizarPagina() {
+    location.reload(); 
+  }
   obtenerProductosEnCesta(): void {
     this.cestaService.verProductosCesta()
       .subscribe(
@@ -49,6 +51,7 @@ export class CestaComponent implements OnInit {
       .subscribe(
         () => {
           this.obtenerProductosEnCesta();
+          location.reload(); 
         },
         (error) => {
           console.error('Error al agregar producto a la cesta', error);
@@ -77,6 +80,7 @@ export class CestaComponent implements OnInit {
             } else {
               console.error('La respuesta del servidor no contiene la propiedad "cantidad".', data);
             }
+            location.reload(); 
           },
           (error) => {
             console.error('Error al quitar producto de la cesta', error);
