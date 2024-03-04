@@ -1,15 +1,18 @@
-<h2>Datos del Usuario</h2>
-<div *ngIf="usuario">
-  <p>Nombre: {{ usuario.userName }}</p>
-  <p>Email: {{ usuario.email }}</p>
-  <p>Rol: {{ usuario.rol }}</p>
-  <p>Direccion: {{ usuario.address }}</p>
-</div>
-<button class="editar" (click)="editarUsuario(usuario)">Modificar Datos</button>
-<hr>
-<h2>Listado de Pedidos</h2>
-<div *ngFor="let pedido of pedidos">
-  <p>Pedido {{ pedido.id }}</p>
-  <p>Fecha: {{ pedido.fecha }}</p>
-  <p>Total: {{ pedido.total }}</p>
+
+<div class="container">
+  <h2>Datos del Usuario</h2>
+  <div *ngIf="usuario" class="usuario">
+    <p>Nombre: {{ usuario.userName }}</p>
+    <p>Email: {{ usuario.email }}</p>
+    <p>Rol: {{ usuario.rol }}</p>
+    <p>Direccion: {{ usuario.address }}</p>
+    <button class="editar" (click)="editarUsuario(usuario)">Modificar Datos</button>
+  </div>
+  <hr>
+  <h2>Listado de Pedidos</h2>
+  <div *ngFor="let pedido of pedidos" class="pedido">
+    <p>Pedido {{ pedido.id }}</p>
+    <p>Fecha: {{ pedido.fecha }}</p>
+    <p>Total: {{ pedido.total }}€</p>
+  </div>
 </div>
