@@ -1,0 +1,69 @@
+/* administrador-usuarios.component.css */
+
+.table-container {
+    margin: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table td, .table th {
+    text-align: center; /* Centra el contenido horizontalmente en las celdas */
+    vertical-align: middle; /* Centra el contenido verticalmente en las celdas */
+  }
+  
+  th {
+    background-color: #9a0606;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border: 4px solid #270000; 
+  }
+  
+  tr:nth-child(even) {
+    background-color: #670011;
+  }
+  
+  td {
+    padding: 10px;
+    border: 4px solid #270000;
+    background-color: #cfcfcf;
+  }
+  
+  tr:hover {
+    background-color: #ffcccc;
+  }
+
+  /* Estilos para los botones */
+button {
+  border: none; /* Quita el borde */
+  border-radius: 20px; /* Hace que los botones sean redondeados */
+  padding: 10px 20px; /* Agrega espacio interno a los botones */
+  margin-right: 10px; /* Agrega espacio entre los botones */
+  background-color: rgb(0, 0, 0); /* Color de fondo negro */
+  color: white; /* Color de texto blanco */
+  cursor: pointer; /* Cambia el cursor al pasar sobre los botones */
+}
+
+/* Estilos al pasar el cursor sobre los botones */
+button:hover {
+  background-color: rgb(88, 3, 10); /* Cambia el color de fondo al pasar el cursor */
+  
+}
+
+button.editar:hover {
+  background-color: darkgreen; /* Cambia el color de fondo del botón de editar a verde oscuro al pasar el cursor */
+}
+
+button.editar {
+  background-color: green; /* Cambia el color de fondo del botón de editar a verde */
+}
+
+h2 {
+  text-align: center;
+  padding: 2%; 
+}
+  
