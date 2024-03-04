@@ -26,17 +26,17 @@ export class AdministradorDetallesproductoComponent implements OnInit {
   ngOnInit() {
     this.unsubs = this.route.params.subscribe((data) => {
       this.id = data['id'];
-      if (this.id) {
-        this.authService.userRol.subscribe((rol) => {
-          this.isAdmin = rol === 'Administrador';
-          if (this.isAdmin) {
+      this.authService.userRol.subscribe((rol) => {
+        this.isAdmin = rol === 'Administrador';
+        if (this.isAdmin) {
+          if (this.id) {
             this.obtenerDetallesProducto(this.id);
+          } else {
+            this.productoDetalle = {};
+            this.editMode = true;
           }
-        });
-      } else {
-        this.productoDetalle = {};
-        this.editMode = true;
-      }
+        }
+      });
     });
   }
   
