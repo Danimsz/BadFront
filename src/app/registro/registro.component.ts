@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css'],
 })
-export class RegistroComponent {
+export class RegistroComponent implements OnInit{
   isLoginForm = true;
   registerDto: any = {};
   loginDto: any = {};
@@ -18,8 +19,18 @@ export class RegistroComponent {
   welcomeMessage: string = '';
   loginError: string = '';
   registerError: string = '';
+  userId: number | null = null;
 
-  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {
+  }
+  ngOnInit(): void {
+    this.authService.getUserId().subscribe((id) => {
+      this.userId = id;
+    });    
+    if(this.userId != null){
+      this.router.navigate(['/usuario']);
+    }
+  }
 
   toggleForm() {
     this.isLoginForm = !this.isLoginForm;
@@ -32,7 +43,6 @@ export class RegistroComponent {
           console.log('Inicio de sesión exitoso', response);
           // Almacena el nombre de usuario
           const username = loginDto.userName;
-          // Obtén el ID del usuario y el ID de la cesta desde la respuesta del servidor
           const userId = response.userId;
           const cestaId = response.cestaId;
 
